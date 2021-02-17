@@ -55,7 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ISearchParameters.cs" />
+    <Compile Include="KeywordSearch.cs" />
     <Compile Include="Search.cs" />
+    <Compile Include="SearchParameter.cs" />
+    <Compile Include="TextParam.cs" />
+    <Compile Include="TextParamExclude.cs" />
+    <Compile Include="TextParamInclude.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
