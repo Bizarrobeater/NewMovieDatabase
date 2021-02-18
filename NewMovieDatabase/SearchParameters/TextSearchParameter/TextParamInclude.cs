@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace NewMovieDatabase
 {
-    class TextParamInclude : TextParam
+    public class TextParamInclude : TextParam
     {
         public TextParamInclude(string parameter) : base(parameter)
         {
-            _modifier = "";
         }
     }
 }

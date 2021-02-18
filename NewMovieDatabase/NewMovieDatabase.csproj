@@ -55,13 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ISearchParameters.cs" />
+    <Compile Include="ISearchParameter.cs" />
     <Compile Include="KeywordSearch.cs" />
+    <Compile Include="SearchParameters\NumberParam.cs" />
     <Compile Include="Search.cs" />
-    <Compile Include="SearchParameter.cs" />
-    <Compile Include="TextParam.cs" />
-    <Compile Include="TextParamExclude.cs" />
-    <Compile Include="TextParamInclude.cs" />
+    <Compile Include="SearchParameters\SearchParameter.cs" />
+    <Compile Include="SearchParameters\TextSearchParameter\TextParam.cs" />
+    <Compile Include="SearchParameters\TextSearchParameter\TextParamExact.cs" />
+    <Compile Include="SearchParameters\TextSearchParameter\TextParamExclude.cs" />
+    <Compile Include="SearchParameters\TextSearchParameter\TextParamInclude.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

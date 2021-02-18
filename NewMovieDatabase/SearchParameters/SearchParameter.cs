@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace NewMovieDatabase
 {
-    abstract class SearchParameter : ISearchParameters
+    public abstract class SearchParameter : ISearchParameter
     {
         protected string _searchParameter { get; set; }
         protected string _modifier { get; set; }
         public SearchParameter(string searchParameter)
         {
             _searchParameter = searchParameter;
+            _modifier = "";
         }
 
         public abstract string ReturnAsSQLParameter();

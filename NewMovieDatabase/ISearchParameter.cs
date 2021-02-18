@@ -1,6 +1,6 @@
 ﻿namespace NewMovieDatabase
 {
-    public interface ISearchParameters
+    public interface ISearchParameter
     {
         string ReturnAsSQLParameter();
     }
