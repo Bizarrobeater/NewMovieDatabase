@@ -1,16 +1,13 @@
-﻿namespace NewMovieDatabase
+﻿namespace NewMovieDatabase.SearchParameters
 {
-    public abstract class TextParam : SearchParameter
+    public abstract class TextParam : SearchParameter<string>
     {
         public TextParam(string parameter) : base(parameter)
         {
             _searchParameter = EscapeTextParameter();
         }
 
-        public override string ReturnAsSQLParameter()
-        {
-            return $"{_modifier}LIKE '%{_searchParameter}%'";
-        }
+        public override string ReturnAsSQLParameter => $"{_modifier}LIKE '%{_searchParameter}%'";
 
         private string EscapeTextParameter()
         {

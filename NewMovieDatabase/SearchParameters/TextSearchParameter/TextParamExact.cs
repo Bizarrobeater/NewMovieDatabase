@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NewMovieDatabase
+﻿namespace NewMovieDatabase.SearchParameters
 {
     public class TextParamExact : TextParam
     {
@@ -13,9 +7,6 @@ namespace NewMovieDatabase
         {
         }
 
-        public override string ReturnAsSQLParameter()
-        {
-            return $"LIKE '{_searchParameter}'";
-        }
+        public override string ReturnAsSQLParameter => $"LIKE '{_searchParameter}'";
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NewMovieDatabase.SearchParameters;
 
 namespace NewMovieDatabase
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using NewMovieDatabase;
+using NewMovieDatabase.SearchParameters;
 
 
 namespace ConsoleForTesting
@@ -17,7 +17,7 @@ namespace ConsoleForTesting
             string expected = @"LIKE '%Es''cap''e%'";
 
             ISearchParameter search = new TextParamInclude(testString);
-            Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter()}");
+            Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter}");
         }
 
         public static void TestRemoveQuotes()
@@ -26,7 +26,6 @@ namespace ConsoleForTesting
             string expected = @"LIKE '%Quotes Test%'";
 
             ISearchParameter search = new TextParamInclude(testString);
-            Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter()}");
-        }
+            Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter}");        }
     }
 }

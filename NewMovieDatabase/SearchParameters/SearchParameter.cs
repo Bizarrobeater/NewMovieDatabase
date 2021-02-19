@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NewMovieDatabase
+﻿namespace NewMovieDatabase.SearchParameters
 {
-    public abstract class SearchParameter : ISearchParameter
+    public abstract class SearchParameter<T> : ISearchParameter
     {
-        protected string _searchParameter { get; set; }
+        protected T _searchParameter { get; set; }
         protected string _modifier { get; set; }
-        public SearchParameter(string searchParameter)
+        public SearchParameter(T searchParameter)
         {
             _searchParameter = searchParameter;
             _modifier = "";
         }
 
-        public abstract string ReturnAsSQLParameter();
-
+        public abstract string ReturnAsSQLParameter { get; }
     }
 }
