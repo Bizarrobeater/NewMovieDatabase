@@ -1,6 +1,8 @@
-﻿namespace NewMovieDatabase.SearchParameters
+﻿using System;
+
+namespace NewMovieDatabase.SearchParameters
 {
-    public abstract class SearchParameter<T> : ISearchParameter
+    public abstract class SearchParameter<T> : ISearchParameter where T: IComparable<T>
     {
         protected T _searchParameter { get; set; }
         protected string _modifier { get; set; }

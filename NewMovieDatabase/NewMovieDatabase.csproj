@@ -55,7 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SearchParameters\GenericSearchParameter\GenericParamBetween.cs" />
     <Compile Include="SearchParameters\GenericSearchParameter\GenericParamBetweenBase.cs" />
+    <Compile Include="SearchParameters\GenericSearchParameter\GenericParamNotBetween.cs" />
     <Compile Include="SearchParameters\GenericSearchParameter\GenericParamNotLargerThan.cs" />
     <Compile Include="SearchParameters\GenericSearchParameter\GenericParam.cs" />
     <Compile Include="SearchParameters\GenericSearchParameter\GenericParamEqual.cs" />
