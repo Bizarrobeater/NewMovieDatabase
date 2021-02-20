@@ -67,17 +67,7 @@
     <Compile Include="SearchParameters\GenericSearchParameter\GenericParamSmallerThan.cs" />
     <Compile Include="SearchParameters\ISearchParameter.cs" />
     <Compile Include="KeywordSearch.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamBetween.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamBetweenBase.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamLargerThan.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParam.cs" />
     <Compile Include="Search.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamEqual.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamNotBetween.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamNotEqual.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamNotLargerThan.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamNotSmallerThan.cs" />
-    <Compile Include="SearchParameters\NumberSearchParameter\NumberParamSmallerThan.cs" />
     <Compile Include="SearchParameters\SearchParameter.cs" />
     <Compile Include="SearchParameters\SearchParameterAbstractFactory.cs" />
     <Compile Include="SearchParameters\TextSearchParameter\TextParam.cs" />
