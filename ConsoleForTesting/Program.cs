@@ -8,7 +8,7 @@ namespace ConsoleForTesting
     {
         static void Main(string[] args)
         {
-            TestEscapeCharacters();
+            TestDateTimeCompare();
         }
 
         public static void TestEscapeCharacters()
@@ -26,6 +26,18 @@ namespace ConsoleForTesting
             string expected = @"LIKE '%Quotes Test%'";
 
             ISearchParameter search = new TextParamInclude(testString);
-            Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter}");        }
+            Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter}");        
+        }
+
+        public static void TestDateTimeCompare()
+        {
+            DateTime first = DateTime.Parse("01-01-2010");
+            DateTime second = DateTime.Parse("01-01-2020");
+
+            Console.WriteLine(first.CompareTo(second));
+            Console.WriteLine(second.CompareTo(first));
+            Console.WriteLine(first.CompareTo(first));
+
+        }
     }
 }

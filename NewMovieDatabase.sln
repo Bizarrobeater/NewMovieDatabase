@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewMovieDatabase", "NewMovieDatabase\NewMovieDatabase.csproj", "{B6A1EC42-6E81-4C8B-96D9-B4A13BD61810}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewMovieDataBaseTest", "NewMovieDataBaseTest\NewMovieDataBaseTest.csproj", "{CA2D1B5D-572F-47D5-9599-9EB9AE314071}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewMovieDataBaseTest", "NewMovieDataBaseTest\NewMovieDataBaseTest.csproj", "{CA2D1B5D-572F-47D5-9599-9EB9AE314071}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleForTesting", "ConsoleForTesting\ConsoleForTesting.csproj", "{41708977-136D-4811-86B1-82478AD0A3D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleForDebugging", "ConsoleForTesting\ConsoleForDebugging.csproj", "{41708977-136D-4811-86B1-82478AD0A3D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

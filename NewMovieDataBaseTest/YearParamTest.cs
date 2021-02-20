@@ -63,7 +63,7 @@ namespace NewMovieDataBaseTest
         //{
         //    int lowYear = 2010;
         //    int highYear = 2020;
-        //    string expected = "BEtWEEN '2010-01-01' AND '2020-31-12'" ;
+        //    string expected = "BEtWEEN '2010-01-01' AND '2020-31-12'";
 
         //    ISearchParameter search = new YearParamBetween(lowYear, highYear);
         //    Assert.AreEqual(expected, search.ReturnAsSQLParameter);

@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DateAsParam.cs" />
     <Compile Include="SearchParameters\GenericSearchParameter\GenericParamBetween.cs" />
     <Compile Include="SearchParameters\GenericSearchParameter\GenericParamBetweenBase.cs" />
     <Compile Include="SearchParameters\GenericSearchParameter\GenericParamNotBetween.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="SearchParameters\TextSearchParameter\TextParamExact.cs" />
     <Compile Include="SearchParameters\TextSearchParameter\TextParamExclude.cs" />
     <Compile Include="SearchParameters\TextSearchParameter\TextParamInclude.cs" />
+    <Compile Include="YearAsParam.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
