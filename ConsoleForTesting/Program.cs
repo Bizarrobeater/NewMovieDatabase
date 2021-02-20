@@ -1,4 +1,5 @@
 ﻿using System;
+using NewMovieDatabase;
 using NewMovieDatabase.SearchParameters;
 
 
@@ -37,7 +38,15 @@ namespace ConsoleForTesting
             Console.WriteLine(first.CompareTo(second));
             Console.WriteLine(second.CompareTo(first));
             Console.WriteLine(first.CompareTo(first));
+        }
 
+        public static void TestDateAsParamImplicit()
+        {
+            DateAsParam test = new DateAsParam("2020-01-01");
+            
+            DateTime before = DateTime.Parse("2019-01-01");
+            DateTime after = DateTime.Parse("2021-01-01");
+            DateTime same = DateTime.Parse("2020-01-01");
         }
     }
 }

@@ -89,5 +89,22 @@ namespace NewMovieDataBaseTest
             Assert.AreEqual(highDate.CompareTo(lowDate), highDateAsParam.CompareTo(lowDateAsParam));
         }
 
+        [TestMethod]
+        public void TestImplicitConversionDateAsParam()
+        {
+            DateAsParam dateAsParam = new DateAsParam("2020-01-01");
+
+            DateTime before = DateTime.Parse("2019-01-01");
+            DateTime after = DateTime.Parse("2021-01-01");
+            DateTime same = DateTime.Parse("2020-01-01");
+
+            Assert.AreEqual(-1, before.CompareTo(dateAsParam));
+            Assert.AreEqual(1, after.CompareTo(dateAsParam));
+            Assert.AreEqual(0, same.CompareTo(dateAsParam));
+
+            Assert.AreEqual(1, dateAsParam.CompareTo(before));
+            Assert.AreEqual(-1, dateAsParam.CompareTo(after));
+            Assert.AreEqual(0, dateAsParam.CompareTo(same));
+        }
     }
 }

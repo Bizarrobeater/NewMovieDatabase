@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NewMovieDatabase;
 using NewMovieDatabase.SearchParameters;
 
 
@@ -215,6 +216,139 @@ namespace NewMovieDataBaseTest
             double testnumber = 5.5;
             string expected = $"= {testnumber}";
             ISearchParameter searchparam = new GenericParamBetween<double>(testnumber, testnumber);
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        // Testing for Dates
+
+        [TestMethod]
+        public void TestGenericParamEqualDate()
+        {
+            string testDate = "2020-12-30";
+            DateAsParam dateAsParam = new DateAsParam(testDate);
+            ISearchParameter searchparam = new GenericParamEqual<DateAsParam>(dateAsParam);
+
+            string expected = $"= '{testDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamNotEqualDate()
+        {
+            string testDate = "2020-12-30";
+            DateAsParam dateAsParam = new DateAsParam(testDate);
+            ISearchParameter searchparam = new GenericParamNotEqual<DateAsParam>(dateAsParam);
+
+            string expected = $"!= '{testDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamLargerThanDate()
+        {
+            string testDate = "2020-12-30";
+            DateAsParam dateAsParam = new DateAsParam(testDate);
+            ISearchParameter searchparam = new GenericParamLargerThan<DateAsParam>(dateAsParam);
+
+            string expected = $"> '{testDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamNotLargerThanDate()
+        {
+            string testDate = "2020-12-30";
+            DateAsParam dateAsParam = new DateAsParam(testDate);
+            ISearchParameter searchparam = new GenericParamNotLargerThan<DateAsParam>(dateAsParam);
+
+            string expected = $"!> '{testDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamSmallerThanDate()
+        {
+            string testDate = "2020-12-30";
+            DateAsParam dateAsParam = new DateAsParam(testDate);
+            ISearchParameter searchparam = new GenericParamSmallerThan<DateAsParam>(dateAsParam);
+
+            string expected = $"< '{testDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamNotSmallerThanDate()
+        {
+            string testDate = "2020-12-30";
+            DateAsParam dateAsParam = new DateAsParam(testDate);
+            ISearchParameter searchparam = new GenericParamNotSmallerThan<DateAsParam>(dateAsParam);
+
+            string expected = $"!< '{testDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamBetweenDate()
+        {
+            string lowDate = "2010-01-01";
+            string highDate = "2020-12-30";
+            DateAsParam low = new DateAsParam(lowDate);
+            DateAsParam high = new DateAsParam(highDate);
+
+
+            ISearchParameter searchparam = new GenericParamBetween<DateAsParam>(low, high);
+
+            string expected = $"BETWEEN '{lowDate}' AND '{highDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamNotBetweenDate()
+        {
+            string lowDate = "2010-01-01";
+            string highDate = "2020-12-30";
+            DateAsParam low = new DateAsParam(lowDate);
+            DateAsParam high = new DateAsParam(highDate);
+
+
+            ISearchParameter searchparam = new GenericParamNotBetween<DateAsParam>(low, high);
+
+            string expected = $"NOT BETWEEN '{lowDate}' AND '{highDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamBetweenHighFirstDate()
+        {
+            string lowDate = "2010-01-01";
+            string highDate = "2020-12-30";
+            DateAsParam low = new DateAsParam(lowDate);
+            DateAsParam high = new DateAsParam(highDate);
+
+            ISearchParameter searchparam = new GenericParamBetween<DateAsParam>(high, low);
+
+            string expected = $"BETWEEN '{lowDate}' AND '{highDate}'";
+
+            Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
+        }
+
+        [TestMethod]
+        public void TestGenericParamBetweenSameNumberDate()
+        {
+            string testDate = "2020-12-30";
+            DateAsParam dateAsParam = new DateAsParam(testDate);
+            ISearchParameter searchparam = new GenericParamEqual<DateAsParam>(dateAsParam);
+
+            string expected = $"= '{testDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
