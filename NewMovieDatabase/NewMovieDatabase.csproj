@@ -79,6 +79,7 @@
     <Compile Include="SearchParameters\NumberSearchParameter\NumberParamNotSmallerThan.cs" />
     <Compile Include="SearchParameters\NumberSearchParameter\NumberParamSmallerThan.cs" />
     <Compile Include="SearchParameters\SearchParameter.cs" />
+    <Compile Include="SearchParameters\SearchParameterAbstractFactory.cs" />
     <Compile Include="SearchParameters\TextSearchParameter\TextParam.cs" />
     <Compile Include="SearchParameters\TextSearchParameter\TextParamExact.cs" />
     <Compile Include="SearchParameters\TextSearchParameter\TextParamExclude.cs" />

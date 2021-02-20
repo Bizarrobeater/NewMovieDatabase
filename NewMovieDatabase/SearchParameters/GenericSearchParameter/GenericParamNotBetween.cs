@@ -2,7 +2,7 @@
 
 namespace NewMovieDatabase.SearchParameters
 {
-    class GenericParamNotBetween<T> : GenericParamBetweenBase<T> where T : IComparable<T>
+    public class GenericParamNotBetween<T> : GenericParamBetweenBase<T> where T : IComparable<T>
     {
         public GenericParamNotBetween(T firstParameter, T secondParameter) : base(firstParameter, secondParameter)
         {

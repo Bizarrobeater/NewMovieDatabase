@@ -2,7 +2,7 @@
 
 namespace NewMovieDatabase.SearchParameters
 {
-    abstract class GenericParamBetweenBase<T> : GenericParam<T> where T: IComparable<T>
+    public abstract class GenericParamBetweenBase<T> : GenericParam<T> where T: IComparable<T>
     {
         internal T _secondSearchParameter { get; private set; }
         internal bool _equal { get; private set; }
@@ -15,7 +15,7 @@ namespace NewMovieDatabase.SearchParameters
 
         internal virtual void SortParameters()
         {
-            if (_searchParameter.CompareTo(_secondSearchParameter) <= 0)
+            if (_searchParameter.CompareTo(_secondSearchParameter) >= 0)
             {
                 T temp = _searchParameter;
                 _searchParameter = _secondSearchParameter;

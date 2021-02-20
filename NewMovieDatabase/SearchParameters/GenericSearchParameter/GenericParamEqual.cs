@@ -1,8 +1,10 @@
-﻿namespace NewMovieDatabase.SearchParameters
+﻿using System;
+
+namespace NewMovieDatabase.SearchParameters
 {
-    public class GenericParamEqual<T> : GenericParam<T>
+    public class GenericParamEqual<T> : GenericParam<T> where T: IComparable<T>
     {
-        protected GenericParamEqual(T searchParameter) : base(searchParameter)
+        public GenericParamEqual(T searchParameter) : base(searchParameter)
         {
             _modifier = "=";
         }

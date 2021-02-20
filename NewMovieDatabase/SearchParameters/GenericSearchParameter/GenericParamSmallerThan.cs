@@ -1,6 +1,8 @@
-﻿namespace NewMovieDatabase.SearchParameters
+﻿using System;
+
+namespace NewMovieDatabase.SearchParameters
 {
-    class GenericParamSmallerThan<T> : GenericParam<T>
+    public class GenericParamSmallerThan<T> : GenericParam<T> where T: IComparable<T>
     {
         public GenericParamSmallerThan(T searchParameter) : base(searchParameter)
         {
