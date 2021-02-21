@@ -82,6 +82,7 @@
     <Compile Include="TableClasses\ColumnType\Column.cs" />
     <Compile Include="TableClasses\ColumnType\ColumnEnumerator.cs" />
     <Compile Include="TableClasses\ColumnType\ColumnSecKey.cs" />
+    <Compile Include="TableClasses\ColumnType\TableColumnCollection.cs" />
     <Compile Include="TableClasses\Exceptions\ColumnAlreadyExistsException.cs" />
     <Compile Include="TableClasses\Exceptions\PrimaryKeyExistsException.cs" />
     <Compile Include="TableClasses\Table.cs" />
