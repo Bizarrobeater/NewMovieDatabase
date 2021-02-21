@@ -34,7 +34,7 @@ namespace NewMovieDataBaseTest
         public void TestGenericParamLargerThanInt()
         {
             int testnumber = 1234;
-            string expected = $"> {testnumber}";
+            string expected = $">= {testnumber}";
             ISearchParameter searchparam = new GenericParamLargerThan<int>(testnumber);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
@@ -54,7 +54,7 @@ namespace NewMovieDataBaseTest
         public void TestGenericParamSmallerThanInt()
         {
             int testnumber = 1234;
-            string expected = $"< {testnumber}";
+            string expected = $"<= {testnumber}";
             ISearchParameter searchparam = new GenericParamSmallerThan<int>(testnumber);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
@@ -141,7 +141,7 @@ namespace NewMovieDataBaseTest
         public void TestGenericParamLargerThanDouble()
         {
             double testnumber = 5.5;
-            string expected = $"> {testnumber}";
+            string expected = $">= {testnumber}";
             ISearchParameter searchparam = new GenericParamLargerThan<double>(testnumber);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
@@ -161,7 +161,7 @@ namespace NewMovieDataBaseTest
         public void TestGenericParamSmallerThanDouble()
         {
             double testnumber = 5.5;
-            string expected = $"< {testnumber}";
+            string expected = $"<= {testnumber}";
             ISearchParameter searchparam = new GenericParamSmallerThan<double>(testnumber);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
@@ -253,7 +253,7 @@ namespace NewMovieDataBaseTest
             DateAsParam dateAsParam = new DateAsParam(testDate);
             ISearchParameter searchparam = new GenericParamLargerThan<DateAsParam>(dateAsParam);
 
-            string expected = $"> '{testDate}'";
+            string expected = $">= '{testDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -277,7 +277,7 @@ namespace NewMovieDataBaseTest
             DateAsParam dateAsParam = new DateAsParam(testDate);
             ISearchParameter searchparam = new GenericParamSmallerThan<DateAsParam>(dateAsParam);
 
-            string expected = $"< '{testDate}'";
+            string expected = $"<= '{testDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }

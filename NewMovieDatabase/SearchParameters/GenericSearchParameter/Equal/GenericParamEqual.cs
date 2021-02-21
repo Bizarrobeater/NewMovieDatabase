@@ -2,7 +2,7 @@
 
 namespace NewMovieDatabase.SearchParameters
 {
-    public class GenericParamEqual<T> : GenericParam<T> where T: IComparable<T>
+    public class GenericParamEqual<T> : GenericParamAbstract<T> where T: IComparable<T>
     {
         public GenericParamEqual(T searchParameter) : base(searchParameter)
         {

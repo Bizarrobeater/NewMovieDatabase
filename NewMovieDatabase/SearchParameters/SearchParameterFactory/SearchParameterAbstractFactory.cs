@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewMovieDatabase.SearchParameters
 {
-    class SearchParameterAbstractFactory
+    public class SearchParameterAbstractFactory
     {
         // TODO Abstract factory that can do the infering of datatypes
     }
