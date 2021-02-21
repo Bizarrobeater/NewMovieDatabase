@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NewMovieDatabase.TableClasses
 {
     public class Table
     {
         string _tableName;
-        ColumnCollection _columns;
+        TableColumnCollection _columns;
 
         public string TableName { get => _tableName; }
 
         public Table(string tableName)
         {
             _tableName = tableName;
-            _columns = new ColumnCollection();
+            _columns = new TableColumnCollection();
         }
 
         public override string ToString()
@@ -24,34 +20,17 @@ namespace NewMovieDatabase.TableClasses
             return _tableName;
         }
 
+        // Tries to add a new column to the tables collection
         public bool AddColumn(Column newColumn, out string message)
         {
             bool result = false;
-            bool isPrimaryKey = newColumn.DataType == ColumnDataType.PrimaryKey;
             message = "";
-
-            // A column can always be added if non exist already
-            if (_columns.Count == 0)
-            {
-                _columns.Add(newColumn);
-                result = true;
-                return result;
-            }
 
             try
             {
-                foreach (Column column in _columns)
-                {
-                    // if a new column is a primary key, checks all existing columns for same, throws exception if a primary key already exists
-                    if (isPrimaryKey && column.DataType == ColumnDataType.PrimaryKey)
-                        throw new PrimaryKeyExistsException(newColumn, column);
-                    else
-                    // throws an exception if the columnName exists
-                        if (column.Equals(newColumn.FullName))
-                            throw new ColumnAlreadyExistsException(newColumn, column); 
-                }
                 _columns.Add(newColumn);
                 result = true;
+                newColumn.AddTable(this);
             }
             catch (PrimaryKeyExistsException pkeEx)
             {
@@ -62,6 +41,22 @@ namespace NewMovieDatabase.TableClasses
                 message = caeEx.Message;
             }
             return result;
+        }
+
+        // Makes it possible to add several columns at the same time
+        public void AddColumns(IEnumerable<Column> columns, out List<string> messages)
+        {
+            messages = new List<string>();
+            string newMessage;
+
+            foreach (Column column in columns)
+            {
+                // Add message about succes or failure of the add
+                if (AddColumn(column, out newMessage))
+                    messages.Add($"{column.ColumnName} was added to the table");
+                else
+                    messages.Add(newMessage);
+            }
         }
     }
 }

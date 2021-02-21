@@ -6,7 +6,7 @@ namespace NewMovieDatabase.TableClasses
 {
     public class ColumnCollection : ICollection<Column>
     {
-        List<Column> _innerCollection;
+        protected List<Column> _innerCollection;
 
         public ColumnCollection()
         {
@@ -22,7 +22,7 @@ namespace NewMovieDatabase.TableClasses
             set { _innerCollection[index] = value; }
         }
 
-        public void Add(Column item) => _innerCollection.Add(item);
+        public virtual void Add(Column item) => _innerCollection.Add(item);
 
         public void Clear() => _innerCollection.Clear();
 
@@ -51,7 +51,7 @@ namespace NewMovieDatabase.TableClasses
             }
         }
 
-        bool ICollection<Column>.Remove(Column item)
+        public bool Remove(Column item)
         {
             Column curColumn;
 

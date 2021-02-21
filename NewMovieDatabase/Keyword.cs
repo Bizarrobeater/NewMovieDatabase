@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NewMovieDatabase.TableClasses;
+﻿using NewMovieDatabase.TableClasses;
 
 namespace NewMovieDatabase
 {
@@ -17,5 +12,15 @@ namespace NewMovieDatabase
             _keyword = keyword;
             _associatedColumns = columns;
         }
+
+        public Keyword(string keyword)
+        {
+            _keyword = keyword;
+            _associatedColumns = new ColumnCollection();
+        }
+
+        public void AddColumn(Column column) => _associatedColumns.Add(column);
+
+        public void RemoveColumn(Column column) => _associatedColumns.Remove(column);
     }
 }

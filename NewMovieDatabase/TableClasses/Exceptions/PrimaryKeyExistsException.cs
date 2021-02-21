@@ -13,7 +13,7 @@ namespace NewMovieDatabase.TableClasses
         {
         }
 
-        public PrimaryKeyExistsException(Column TryAddColumn, Column CurrPrimKeyColumn) : base($"{TryAddColumn} is a primary key and {CurrPrimKeyColumn} is already a primary key in {CurrPrimKeyColumn.Table}")
+        public PrimaryKeyExistsException(Column TryAddColumn) : base($"{TryAddColumn} is a primary key and a primary key already exists in the table.")
         {
         }
 

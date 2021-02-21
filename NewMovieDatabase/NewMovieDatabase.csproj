@@ -77,16 +77,15 @@
     <Compile Include="SearchParameters\TextSearchParameter\TextParamExclude.cs" />
     <Compile Include="SearchParameters\TextSearchParameter\TextParamInclude.cs" />
     <Compile Include="SearchParameters\CustomDateType\YearAsParam.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnCollection.cs" />
+    <Compile Include="TableClasses\ColumnType\ColumnCollections\ColumnCollection.cs" />
     <Compile Include="TableClasses\ColumnType\ColumnDataType.cs" />
     <Compile Include="TableClasses\ColumnType\Column.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnEnumerator.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnSecKey.cs" />
-    <Compile Include="TableClasses\ColumnType\TableColumnCollection.cs" />
+    <Compile Include="TableClasses\ColumnType\ColumnCollections\ColumnEnumerator.cs" />
+    <Compile Include="TableClasses\ColumnType\ColumnForeignKey.cs" />
+    <Compile Include="TableClasses\ColumnType\ColumnCollections\TableColumnCollection.cs" />
     <Compile Include="TableClasses\Exceptions\ColumnAlreadyExistsException.cs" />
     <Compile Include="TableClasses\Exceptions\PrimaryKeyExistsException.cs" />
     <Compile Include="TableClasses\Table.cs" />
-    <Compile Include="TableClasses\TableTypeAbstract.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
