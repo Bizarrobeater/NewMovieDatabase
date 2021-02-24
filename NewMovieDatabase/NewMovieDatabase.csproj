@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VerifyNames\Exceptions\BasicNameConstraintException.cs" />
+    <Compile Include="VerifyNames\Exceptions\KeywordNameException.cs" />
+    <Compile Include="VerifyNames\IDataBaseNameRules.cs" />
     <Compile Include="Keyword.cs" />
     <Compile Include="SearchParameters\CustomDateType\DateAsParam.cs" />
     <Compile Include="SearchParameters\GenericSearchParameter\Between\GenericParamBetween.cs" />
@@ -87,6 +90,8 @@
     <Compile Include="TableClasses\Exceptions\ColumnAlreadyInTableException.cs" />
     <Compile Include="TableClasses\Exceptions\PrimaryKeyExistsException.cs" />
     <Compile Include="TableClasses\Table.cs" />
+    <Compile Include="VerifyNames\SQLite\VerifySQLiteName.cs" />
+    <Compile Include="VerifyNames\VerifySQLLanguageName.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -126,6 +131,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="VerifyNames\SQLite\SQLiteKeywords.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
