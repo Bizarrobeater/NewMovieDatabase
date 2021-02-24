@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NewMovieDatabase.VerifyNames.SQLite
+﻿namespace NewMovieDatabase.VerifyNames
 {
-    class VerifySQLiteName : VerifySQLLanguageName
+    public class VerifySQLiteName : VerifySQLLanguageName
     {
         public VerifySQLiteName()
         {
@@ -19,7 +13,7 @@ namespace NewMovieDatabase.VerifyNames.SQLite
             {
                 if (!SimpleVerify(name))
                     throw new BasicNameConstraintException(name);
-                else if (keywordList.Value.Contains(name))
+                else if (keywordList.Value.Contains(name.ToUpper()))
                     throw new KeywordNameException(name);
                 message = "";
                 verified = true;

@@ -132,7 +132,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="VerifyNames\SQLite\SQLiteKeywords.txt">
+    <Resource Include="VerifyNames\ReservedKeywordLists\SQLiteKeywords.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

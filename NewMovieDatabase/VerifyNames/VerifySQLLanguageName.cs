@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -9,6 +10,9 @@ namespace NewMovieDatabase.VerifyNames
     {
         internal string keywordFilename;
         internal Lazy<List<string>> keywordList;
+        static private string partFileName = "\\NewMovieDatabase\\VerifyNames\\ReservedKeywordLists\\";
+        static private string currentDir = AppDomain.CurrentDomain.BaseDirectory;
+        static private string baseDirectory = Directory.GetParent(currentDir).Parent.Parent.Parent.Parent.FullName;
 
 
         public VerifySQLLanguageName()
@@ -20,13 +24,13 @@ namespace NewMovieDatabase.VerifyNames
         // i.e. starts with letter and only contains letters, numbers and underscore
         internal bool SimpleVerify(string name)
         {
-            Regex regex = new Regex(@"^[a-zA-Z]+[a-zA-Z\d_]*");
+            Regex regex = new Regex(@"^[a-zA-Z]+[a-zA-Z\d_]*$");
             return regex.IsMatch(name);
         }
 
         private List<string> GetKeywordList()
         {
-            return System.IO.File.ReadLines(keywordFilename).ToList();
+            return File.ReadLines(baseDirectory + partFileName + keywordFilename).ToList();
         }
 
         public abstract bool VerifyColumnName(string name, out string message);

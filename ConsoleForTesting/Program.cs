@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using NewMovieDatabase;
 using NewMovieDatabase.SearchParameters;
 
@@ -9,7 +10,12 @@ namespace ConsoleForTesting
     {
         static void Main(string[] args)
         {
-            TestDateTimeCompare();
+            string testDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string baseDirectory = Directory.GetParent(testDirectory).Parent.Parent.Parent.Parent.FullName;
+
+            
+            Console.WriteLine(testDirectory);
+            Console.WriteLine(baseDirectory);
         }
 
         public static void TestEscapeCharacters()

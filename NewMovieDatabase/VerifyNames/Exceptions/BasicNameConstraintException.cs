@@ -10,7 +10,7 @@ namespace NewMovieDatabase.VerifyNames
     {
 
         public BasicNameConstraintException(string name)
-            : base($"{name} does not satisfy naming conventions.\nIt must start with a letter, and contain only letters, numbers or underscore.")
+            : base($"{name} does not satisfy naming conventions.\nIt must start with a letter, and contain only letters(a-z), numbers or underscore.")
         {
         }
     }
