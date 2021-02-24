@@ -21,42 +21,48 @@ namespace NewMovieDatabase.TableClasses
         }
 
         // Tries to add a new column to the tables collection
-        public bool AddColumn(Column newColumn, out string message)
+        public string AddColumn(Column newColumn)
         {
-            bool result = false;
-            message = "";
+            string message;
+            string exceptionTopMessage = "Failure to add column - reason:\n\t";
 
             try
             {
-                _columns.Add(newColumn);
-                result = true;
-                newColumn.AddTable(this);
+                _columns.Add(newColumn, this);
+                message = $"{newColumn.ColumnName} was successfully added to {TableName}";
             }
             catch (PrimaryKeyExistsException pkeEx)
             {
-                message = pkeEx.Message;
+                message = $"{exceptionTopMessage}{pkeEx.Message}";
             }
             catch (ColumnAlreadyExistsException caeEx)
             {
-                message = caeEx.Message;
+                message = $"{exceptionTopMessage}{caeEx.Message}";
             }
+            catch (ColumnAlreadyInTableException catEx)
+            {
+                message = $"{ exceptionTopMessage}{catEx.Message}";
+            }
+            return message;
+        }
+
+        public bool RemoveColumn(Column column)
+        {
+            bool result = _columns.Remove(column);
+            column.RemoveTable();
             return result;
         }
 
         // Makes it possible to add several columns at the same time
-        public void AddColumns(IEnumerable<Column> columns, out List<string> messages)
+        public List<string> AddColumns(IEnumerable<Column> columns)
         {
-            messages = new List<string>();
-            string newMessage;
+            List<string> messages = new List<string>();
 
             foreach (Column column in columns)
             {
-                // Add message about succes or failure of the add
-                if (AddColumn(column, out newMessage))
-                    messages.Add($"{column.ColumnName} was added to the table");
-                else
-                    messages.Add(newMessage);
+                messages.Add(AddColumn(column));
             }
+            return messages;
         }
     }
 }

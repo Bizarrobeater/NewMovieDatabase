@@ -9,25 +9,28 @@
         public bool HasPrimaryKey => _primKeyColumn != null;
         public Column PrimaryKeyColumn { get => _primKeyColumn; }
 
-        public override void Add(Column item)
+        public override void Add(Column newColumn, Table table)
         {
-            bool isPrimaryKey = item.DataType == ColumnDataType.PrimaryKey;
-            
+            bool isPrimaryKey = newColumn.DataType == ColumnDataType.PrimaryKey;          
+
             // if a new column is a primary key, checks all existing columns for same, throws exception if a primary key already exists
             if (isPrimaryKey && HasPrimaryKey)
-                throw new PrimaryKeyExistsException(item);
+                throw new PrimaryKeyExistsException(newColumn);
 
             foreach (Column column in _innerCollection)
             {
-                    // throws an exception if the column name exists
-                    if (column.Equals(item.FullName))
-                    throw new ColumnAlreadyExistsException(item, column);
+                // throws an exception if the column name exists
+                if (column.Equals(newColumn.FullName))
+                throw new ColumnAlreadyExistsException(newColumn, column);
             }
+            
+            // Adds the table to the column (and throws error if the column is already associated with a table)
+            newColumn.AddTable(table);
 
-            if (item.DataType == ColumnDataType.PrimaryKey)
-                _primKeyColumn = item;
+            if (newColumn.DataType == ColumnDataType.PrimaryKey)
+                _primKeyColumn = newColumn;
 
-            base.Add(item);
+            base.Add(newColumn);
         }
     }
 }

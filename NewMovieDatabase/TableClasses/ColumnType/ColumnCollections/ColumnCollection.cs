@@ -24,6 +24,12 @@ namespace NewMovieDatabase.TableClasses
 
         public virtual void Add(Column item) => _innerCollection.Add(item);
 
+        public virtual void Add(Column column, Table table)
+        {
+            column.AddTable(table);
+            _innerCollection.Add(column);
+        }
+
         public void Clear() => _innerCollection.Clear();
 
         public bool Contains(Column item)

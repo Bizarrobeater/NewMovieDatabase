@@ -8,64 +8,61 @@ namespace NewMovieDataBaseTest
     [TestClass]
     public class GenericParamTest
     {
+        int lowInt = 1234;
+        int highInt = 5000;
+
         // Testing int for generics
         [TestMethod]
         public void TestGenericParamEqualInt()
-        {
-            int testnumber = 1234;
-            string expected = $"= {testnumber}";
-            ISearchParameter searchparam = new GenericParamEqual<int>(testnumber);
+        {            
+            string expected = $"= {lowInt}";
+            ISearchParameter searchparam = new GenericParamEqual<int>(lowInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
 
         [TestMethod]
         public void TestGenericParamNotEqualInt()
-        {
-            int testnumber = 1234;
-            string expected = $"!= {testnumber}";
+        {            
+            string expected = $"!= {lowInt}";
 
-            ISearchParameter searchparam = new GenericParamNotEqual<int>(testnumber);
+            ISearchParameter searchparam = new GenericParamNotEqual<int>(lowInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
 
         [TestMethod]
         public void TestGenericParamLargerThanInt()
-        {
-            int testnumber = 1234;
-            string expected = $">= {testnumber}";
-            ISearchParameter searchparam = new GenericParamLargerThan<int>(testnumber);
+        {            
+            string expected = $">= {lowInt}";
+            ISearchParameter searchparam = new GenericParamLargerThan<int>(lowInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
 
         [TestMethod]
         public void TestGenericParamNotLargerThanInt()
-        {
-            int testnumber = 1234;
-            string expected = $"!> {testnumber}";
-            ISearchParameter searchparam = new GenericParamNotLargerThan<int>(testnumber);
+        {            
+            string expected = $"!> {lowInt}";
+            ISearchParameter searchparam = new GenericParamNotLargerThan<int>(lowInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
 
         [TestMethod]
         public void TestGenericParamSmallerThanInt()
-        {
-            int testnumber = 1234;
-            string expected = $"<= {testnumber}";
-            ISearchParameter searchparam = new GenericParamSmallerThan<int>(testnumber);
+        {            
+            string expected = $"<= {lowInt}";
+            ISearchParameter searchparam = new GenericParamSmallerThan<int>(lowInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
 
         [TestMethod]
         public void TestGenericParamNotSmallerThanInt()
-        {
-            int testnumber = 1234;
-            string expected = $"!< {testnumber}";
-            ISearchParameter searchparam = new GenericParamNotSmallerThan<int>(testnumber);
+        {            
+            string expected = $"!< {lowInt}";
+            ISearchParameter searchparam = new GenericParamNotSmallerThan<int>(lowInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -73,10 +70,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenInt()
         {
-            int low = 1234;
-            int high = 5000;
-            string expected = $"BETWEEN {low} AND {high}";
-            ISearchParameter searchparam = new GenericParamBetween<int>(low, high);
+            string expected = $"BETWEEN {lowInt} AND {highInt}";
+            ISearchParameter searchparam = new GenericParamBetween<int>(lowInt, highInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -84,10 +79,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotBetweenInt()
         {
-            int low = 1234;
-            int high = 5000;
-            string expected = $"NOT BETWEEN {low} AND {high}";
-            ISearchParameter searchparam = new GenericParamNotBetween<int>(low, high);
+            string expected = $"NOT BETWEEN {lowInt} AND {highInt}";
+            ISearchParameter searchparam = new GenericParamNotBetween<int>(lowInt, highInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -95,10 +88,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenHighFirstInt()
         {
-            int low = 1234;
-            int high = 5000;
-            string expected = $"BETWEEN {low} AND {high}";
-            ISearchParameter searchparam = new GenericParamBetween<int>(high, low);
+            string expected = $"BETWEEN {lowInt} AND {highInt}";
+            ISearchParameter searchparam = new GenericParamBetween<int>(highInt, lowInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -106,22 +97,22 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenSameNumberInt()
         {
-            int testnumber = 1234;
-            string expected = $"= {testnumber}";
-            ISearchParameter searchparam = new GenericParamBetween<int>(testnumber, testnumber);
+            string expected = $"= {lowInt}";
+            ISearchParameter searchparam = new GenericParamBetween<int>(lowInt, lowInt);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
 
 
         // Testing double for generics
-       
+        double lowDouble = 5.5;
+        double highDouble = 7.6;
+
         [TestMethod]
         public void TestGenericParamEqualDouble()
         {
-            double testnumber = 5.5;
-            string expected = $"= {testnumber}";
-            ISearchParameter searchparam = new GenericParamEqual<double>(testnumber);
+            string expected = $"= {lowDouble}";
+            ISearchParameter searchparam = new GenericParamEqual<double>(lowDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -129,10 +120,9 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotEqualDouble()
         {
-            double testnumber = 5.5;
-            string expected = $"!= {testnumber}";
+            string expected = $"!= {lowDouble}";
 
-            ISearchParameter searchparam = new GenericParamNotEqual<double>(testnumber);
+            ISearchParameter searchparam = new GenericParamNotEqual<double>(lowDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -140,9 +130,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamLargerThanDouble()
         {
-            double testnumber = 5.5;
-            string expected = $">= {testnumber}";
-            ISearchParameter searchparam = new GenericParamLargerThan<double>(testnumber);
+            string expected = $">= {lowDouble}";
+            ISearchParameter searchparam = new GenericParamLargerThan<double>(lowDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -150,9 +139,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotLargerThanDouble()
         {
-            double testnumber = 5.5;
-            string expected = $"!> {testnumber}";
-            ISearchParameter searchparam = new GenericParamNotLargerThan<double>(testnumber);
+            string expected = $"!> {lowDouble}";
+            ISearchParameter searchparam = new GenericParamNotLargerThan<double>(lowDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -160,9 +148,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamSmallerThanDouble()
         {
-            double testnumber = 5.5;
-            string expected = $"<= {testnumber}";
-            ISearchParameter searchparam = new GenericParamSmallerThan<double>(testnumber);
+            string expected = $"<= {lowDouble}";
+            ISearchParameter searchparam = new GenericParamSmallerThan<double>(lowDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -170,9 +157,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotSmallerThanDouble()
         {
-            double testnumber = 5.5;
-            string expected = $"!< {testnumber}";
-            ISearchParameter searchparam = new GenericParamNotSmallerThan<double>(testnumber);
+            string expected = $"!< {lowDouble}";
+            ISearchParameter searchparam = new GenericParamNotSmallerThan<double>(lowDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -180,10 +166,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenDouble()
         {
-            double low = 5.5;
-            double high = 9.8;
-            string expected = $"BETWEEN {low} AND {high}";
-            ISearchParameter searchparam = new GenericParamBetween<double>(low, high);
+            string expected = $"BETWEEN {lowDouble} AND {highDouble}";
+            ISearchParameter searchparam = new GenericParamBetween<double>(lowDouble, highDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -191,10 +175,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotBetweenDouble()
         {
-            double low = 5.5;
-            double high = 9.8;
-            string expected = $"NOT BETWEEN {low} AND {high}";
-            ISearchParameter searchparam = new GenericParamNotBetween<double>(low, high);
+            string expected = $"NOT BETWEEN {lowDouble} AND {highDouble}";
+            ISearchParameter searchparam = new GenericParamNotBetween<double>(lowDouble, highDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -202,10 +184,8 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenHighFirstDouble()
         {
-            double low = 5.5;
-            double high = 9.8;
-            string expected = $"BETWEEN {low} AND {high}";
-            ISearchParameter searchparam = new GenericParamBetween<double>(high, low);
+            string expected = $"BETWEEN {lowDouble} AND {highDouble}";
+            ISearchParameter searchparam = new GenericParamBetween<double>(highDouble, lowDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -213,23 +193,24 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenSameNumberDouble()
         {
-            double testnumber = 5.5;
-            string expected = $"= {testnumber}";
-            ISearchParameter searchparam = new GenericParamBetween<double>(testnumber, testnumber);
+            string expected = $"= {lowDouble}";
+            ISearchParameter searchparam = new GenericParamBetween<double>(lowDouble, lowDouble);
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
 
+
+        string lowDate = "2010-01-01";
+        string highDate = "2020-12-31";
         // Testing for Dates
 
         [TestMethod]
         public void TestGenericParamEqualDate()
         {
-            string testDate = "2020-12-30";
-            DateAsParam dateAsParam = new DateAsParam(testDate);
+            DateAsParam dateAsParam = new DateAsParam(lowDate);
             ISearchParameter searchparam = new GenericParamEqual<DateAsParam>(dateAsParam);
 
-            string expected = $"= '{testDate}'";
+            string expected = $"= '{lowDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -237,11 +218,10 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotEqualDate()
         {
-            string testDate = "2020-12-30";
-            DateAsParam dateAsParam = new DateAsParam(testDate);
+            DateAsParam dateAsParam = new DateAsParam(lowDate);
             ISearchParameter searchparam = new GenericParamNotEqual<DateAsParam>(dateAsParam);
 
-            string expected = $"!= '{testDate}'";
+            string expected = $"!= '{lowDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -249,11 +229,10 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamLargerThanDate()
         {
-            string testDate = "2020-12-30";
-            DateAsParam dateAsParam = new DateAsParam(testDate);
+            DateAsParam dateAsParam = new DateAsParam(lowDate);
             ISearchParameter searchparam = new GenericParamLargerThan<DateAsParam>(dateAsParam);
 
-            string expected = $">= '{testDate}'";
+            string expected = $">= '{lowDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -261,11 +240,10 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotLargerThanDate()
         {
-            string testDate = "2020-12-30";
-            DateAsParam dateAsParam = new DateAsParam(testDate);
+            DateAsParam dateAsParam = new DateAsParam(lowDate);
             ISearchParameter searchparam = new GenericParamNotLargerThan<DateAsParam>(dateAsParam);
 
-            string expected = $"!> '{testDate}'";
+            string expected = $"!> '{lowDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -273,11 +251,10 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamSmallerThanDate()
         {
-            string testDate = "2020-12-30";
-            DateAsParam dateAsParam = new DateAsParam(testDate);
+            DateAsParam dateAsParam = new DateAsParam(lowDate);
             ISearchParameter searchparam = new GenericParamSmallerThan<DateAsParam>(dateAsParam);
 
-            string expected = $"<= '{testDate}'";
+            string expected = $"<= '{lowDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -285,11 +262,10 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotSmallerThanDate()
         {
-            string testDate = "2020-12-30";
-            DateAsParam dateAsParam = new DateAsParam(testDate);
+            DateAsParam dateAsParam = new DateAsParam(lowDate);
             ISearchParameter searchparam = new GenericParamNotSmallerThan<DateAsParam>(dateAsParam);
 
-            string expected = $"!< '{testDate}'";
+            string expected = $"!< '{lowDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }
@@ -297,8 +273,6 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenDate()
         {
-            string lowDate = "2010-01-01";
-            string highDate = "2020-12-30";
             DateAsParam low = new DateAsParam(lowDate);
             DateAsParam high = new DateAsParam(highDate);
 
@@ -313,8 +287,6 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamNotBetweenDate()
         {
-            string lowDate = "2010-01-01";
-            string highDate = "2020-12-30";
             DateAsParam low = new DateAsParam(lowDate);
             DateAsParam high = new DateAsParam(highDate);
 
@@ -329,8 +301,6 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenHighFirstDate()
         {
-            string lowDate = "2010-01-01";
-            string highDate = "2020-12-30";
             DateAsParam low = new DateAsParam(lowDate);
             DateAsParam high = new DateAsParam(highDate);
 
@@ -344,11 +314,10 @@ namespace NewMovieDataBaseTest
         [TestMethod]
         public void TestGenericParamBetweenSameNumberDate()
         {
-            string testDate = "2020-12-30";
-            DateAsParam dateAsParam = new DateAsParam(testDate);
+            DateAsParam dateAsParam = new DateAsParam(lowDate);
             ISearchParameter searchparam = new GenericParamEqual<DateAsParam>(dateAsParam);
 
-            string expected = $"= '{testDate}'";
+            string expected = $"= '{lowDate}'";
 
             Assert.AreEqual(expected, searchparam.ReturnAsSQLParameter);
         }

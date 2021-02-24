@@ -84,6 +84,7 @@
     <Compile Include="TableClasses\ColumnType\ColumnForeignKey.cs" />
     <Compile Include="TableClasses\ColumnType\ColumnCollections\TableColumnCollection.cs" />
     <Compile Include="TableClasses\Exceptions\ColumnAlreadyExistsException.cs" />
+    <Compile Include="TableClasses\Exceptions\ColumnAlreadyInTableException.cs" />
     <Compile Include="TableClasses\Exceptions\PrimaryKeyExistsException.cs" />
     <Compile Include="TableClasses\Table.cs" />
     <Page Include="MainWindow.xaml">

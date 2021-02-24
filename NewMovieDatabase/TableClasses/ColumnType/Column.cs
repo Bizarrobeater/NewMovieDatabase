@@ -25,7 +25,22 @@ namespace NewMovieDatabase.TableClasses
             return ColumnName;
         }
 
-        public void AddTable(Table table) => _table = table; // TODO Check for existing tables
+        public void AddTable(Table table)
+        {   
+            if (_table == null)
+            {
+                _table = table;
+            }
+            else
+            {
+                throw new ColumnAlreadyInTableException(this, _table); 
+            }
+        }
+
+        public void RemoveTable()
+        {
+            _table = null;
+        }
 
         // Compares one column to another based on column, tablename and datatype
         public bool Equals(Column other)
