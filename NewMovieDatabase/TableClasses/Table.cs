@@ -12,6 +12,9 @@ namespace NewMovieDatabase.TableClasses
 
         public string TableName { get => _tableName; }
 
+        public int ColumnCount { get => _columns.Count; }
+        public bool HasPrimaryKey { get => _columns.HasPrimaryKey; }
+
         public Table(string tableName)
         {
             _tableName = tableName;

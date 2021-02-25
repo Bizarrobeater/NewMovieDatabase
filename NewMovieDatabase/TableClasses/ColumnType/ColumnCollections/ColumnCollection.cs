@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NewMovieDatabase.TableClasses
 {
@@ -14,6 +15,11 @@ namespace NewMovieDatabase.TableClasses
         public ColumnCollection()
         {
             _innerCollection = new List<Column>();
+        }
+
+        public ColumnCollection(IEnumerable<Column> columns)
+        {
+            _innerCollection = columns.ToList();
         }
 
         /// <inheritdoc/>

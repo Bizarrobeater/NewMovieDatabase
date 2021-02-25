@@ -6,7 +6,7 @@ namespace NewMovieDatabase.TableClasses
     /// <summary>
     /// Represents the metadata of a column in a database
     /// </summary>
-    public class Column : IEquatable<Column>, IEquatable<string>, IEquatable<ColumnDataType>
+    public class Column : IEquatable<Column>, IEquatable<string>, IEquatable<ColumnDataType>, IEquatable<Table>
     {
         /// <summary>
         /// The column name. Used for comparisons and IDs
@@ -29,13 +29,25 @@ namespace NewMovieDatabase.TableClasses
         public Table Table { get => _table; }
         public string ColumnName { get => _columnName; }
         public  string FullName { get => $"{_table.TableName}-{_columnName}"; }
-        public ColumnDataType DataType { get => _dataType; }
+        public ColumnDataType DataType { get => _dataType;}
 
+        public void SetDataType(ColumnDataType dataType) => _dataType = dataType;
+
+
+        /// <summary>
+        /// Instantiate a new column with the name <paramref name="columnName"/>.
+        /// </summary>
+        /// <param name="columnName">Name of the created column.</param>
+        public Column(string columnName)
+        {
+            _columnName = columnName;
+        }
+        
         /// <summary>
         /// Instantiate a new column with the name <paramref name="columnName"/> and datatype <paramref name="dataType"/>.
         /// </summary>
-        /// <param name="columnName"></param>
-        /// <param name="dataType"></param>
+        /// <param name="columnName">Name of the created column.</param>
+        /// <param name="dataType">The columns datatype.</param>
         public Column(string columnName, ColumnDataType dataType)
         {
             _columnName = columnName;
@@ -78,18 +90,18 @@ namespace NewMovieDatabase.TableClasses
         /// <returns>
         /// True if the columns are the same, false if they are not.
         /// </returns>
-        public bool Equals(Column other) => Equals(other.FullName) && Equals(other.DataType);
+        public bool Equals(Column other) => Equals(other.ColumnName) && Equals(other.DataType) && Equals(other.Table);
 
 
         /// <summary>
-        /// Compares the name of columns
+        /// Compares the name of columns.
         /// </summary>
-        /// <param name="ColumnFullName">Full name ({column name}-{table name}) of a column</param>
+        /// <param name="ColumName">string representing the name of a column</param>
         /// <returns>
         /// True if the names are the same, false if they are not.
         /// </returns>
         // Compares a string to full name, cannot take account for datatype
-        public bool Equals(string ColumnFullName) => FullName == ColumnFullName;
+        public bool Equals(string ColumnName) => _columnName == ColumnName;
 
 
         /// <summary>
@@ -100,5 +112,16 @@ namespace NewMovieDatabase.TableClasses
         /// True if the given datatype and this columns datatype is the same, false if not.
         /// </returns>
         public bool Equals(ColumnDataType other) => DataType == other;
+
+
+        /// <summary>
+        /// Compares a table to the table associated with the column.
+        /// </summary>
+        /// <param name="other">Table to compare</param>
+        /// <returns>
+        /// True if it is the same table, false if it is not.
+        /// </returns>
+        public bool Equals(Table other) => _table.Equals(other);
+
     }
 }

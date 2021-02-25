@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a specific type of column colleciton that can only contain 1 primary key and two columns with the same name.
     /// </summary>
-    class TableColumnCollection : ColumnCollection
+    public class TableColumnCollection : ColumnCollection
     {
         /// <summary>
         /// The primary key column in the collection
@@ -46,7 +46,7 @@
             foreach (Column column in _innerCollection)
             {
                 // throws an exception if the column name exists
-                if (column.Equals(newColumn.FullName))
+                if (column.Equals(newColumn.ColumnName))
                 throw new ColumnAlreadyExistsException(newColumn, column);
             }
             
