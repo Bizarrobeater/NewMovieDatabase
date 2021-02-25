@@ -1,5 +1,9 @@
 ﻿namespace NewMovieDatabase.TableClasses
 {
+    /// <inheritdoc/>
+    /// <remarks>
+    /// Specific representation for foreign key columns.
+    /// </remarks>
     class ColumnForeignKey : Column
     {
         Column _refColumn;

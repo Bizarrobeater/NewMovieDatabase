@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace NewMovieDatabase.TableClasses
 {
+    /// <summary>
+    /// Collection of columns.
+    /// </summary>
     public class ColumnCollection : ICollection<Column>
     {
         protected List<Column> _innerCollection;
@@ -13,25 +16,34 @@ namespace NewMovieDatabase.TableClasses
             _innerCollection = new List<Column>();
         }
 
+        /// <inheritdoc/>
         public int Count => _innerCollection.Count;
 
-        // Makes the collection accesible with indices
+        /// <inheritdoc/>
         public Column this[int index]
         {
             get { return _innerCollection[index]; }
             set { _innerCollection[index] = value; }
         }
 
+        /// <inheritdoc/>
         public virtual void Add(Column item) => _innerCollection.Add(item);
 
+        /// <summary>
+        /// Adds a column to the collection and adds the table to the column.
+        /// </summary>
+        /// <param name="column">Column to add.</param>
+        /// <param name="table">Table the column should be registrered to.</param>
         public virtual void Add(Column column, Table table)
         {
             column.AddTable(table);
             _innerCollection.Add(column);
         }
 
+        /// <inheritdoc/>
         public void Clear() => _innerCollection.Clear();
 
+        /// <inheritdoc/>
         public bool Contains(Column item)
         {
             foreach (Column column in _innerCollection)
@@ -42,6 +54,7 @@ namespace NewMovieDatabase.TableClasses
             return false;
         }
 
+        /// <inheritdoc/>
         void ICollection<Column>.CopyTo(Column[] array, int arrayIndex)
         {
             if (array == null)
@@ -57,6 +70,7 @@ namespace NewMovieDatabase.TableClasses
             }
         }
 
+        /// <inheritdoc/>
         public bool Remove(Column item)
         {
             Column curColumn;
@@ -75,10 +89,13 @@ namespace NewMovieDatabase.TableClasses
             return false;
         }
 
+        /// <inheritdoc/>
         IEnumerator IEnumerable.GetEnumerator() => new ColumnEnumerator(this);
 
+        /// <inheritdoc/>
         public IEnumerator<Column> GetEnumerator() => new ColumnEnumerator(this);
 
+        /// <inheritdoc/>
         bool ICollection<Column>.IsReadOnly => false;
     }
 }

@@ -8,8 +8,10 @@ namespace NewMovieDataBaseTest
     public class ColumnTableNameCheckTests
     {
         static string testName;
+        
         string partExpectedNamingConventionMessage = $" does not satisfy naming conventions." +
-                $"\nIt must start with a letter, and contain only letters(a-z), numbers or underscore.";
+                $"\nIt must start with a letter, and contain only letters(a-z), numbers or underscore " +
+                "and can be no longer than 30 characters.";
 
         string partKeywordExceptionMessage = $" is a reserved keyword in the database language, and cannot be used";
 
@@ -85,6 +87,17 @@ namespace NewMovieDataBaseTest
         public void TestNameConventionException7()
         {
             testName = "asd_-_aa";
+            IDataBaseNameRules rules = new VerifySQLiteName();
+            string message;
+
+            Assert.IsFalse(rules.VerifyColumnName(testName, out message));
+            Assert.AreEqual(testName + partExpectedNamingConventionMessage, message);
+        }
+
+        [TestMethod]
+        public void TestNameConventionException8()
+        {
+            testName = "abcdefghijklmnopqrstuvxyz123456789";
             IDataBaseNameRules rules = new VerifySQLiteName();
             string message;
 

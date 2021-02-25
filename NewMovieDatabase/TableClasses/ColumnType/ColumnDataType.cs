@@ -1,9 +1,13 @@
 ﻿namespace NewMovieDatabase.TableClasses
 {
+    /// <summary>
+    /// Enums of different datatype and metadatatypes columns can have
+    /// </summary>
     public enum ColumnDataType
     {
         Text,
-        Number,
+        Integer,
+        Double,
         Date,
         Bool,
         PrimaryKey,

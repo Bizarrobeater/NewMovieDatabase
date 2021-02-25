@@ -2,6 +2,9 @@
 
 namespace NewMovieDatabase.TableClasses
 {
+    /// <summary>
+    /// Represents the metadata for a table in a database
+    /// </summary>
     public class Table
     {
         string _tableName;
