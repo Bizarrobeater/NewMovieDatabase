@@ -17,7 +17,8 @@ namespace NewMovieDatabase.VerifyNames
         // string used to get the location of the reserved keyword list based on the location of the program
         static private string _currentDir = AppDomain.CurrentDomain.BaseDirectory;
         static private string _baseDirectory = Directory.GetParent(_currentDir).Parent.Parent.Parent.Parent.FullName;
-        static private string _reservedKeywordListPath = "\\NewMovieDatabase\\VerifyNames\\ReservedKeywordLists\\";
+        static private string _reservedKeywordListPath = Path.Combine(
+                  _baseDirectory, "NewMovieDatabase", "VerifyNames", "ReservedKeywordLists");
 
         /// <summary>
         /// Initialises a new instance and creates a lazy implementation of the reserved keyword list.
@@ -52,7 +53,7 @@ namespace NewMovieDatabase.VerifyNames
         /// </returns>
         private List<string> GetKeywordList()
         {
-            return File.ReadLines(_baseDirectory + _reservedKeywordListPath + _keywordFilename).ToList();
+            return File.ReadLines(Path.Combine(_reservedKeywordListPath, _keywordFilename)).ToList();
         }
 
         /// <inheritdoc/>
