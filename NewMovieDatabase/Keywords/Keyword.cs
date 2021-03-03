@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NewMovieDatabase.TableClasses;
 
 
-namespace NewMovieDatabase
+namespace NewMovieDatabase.Keywords
 {
     /// <summary>
     /// Represent the metadata regarding usable keywords.
     /// </summary>
-    public class Keyword
+    public class Keyword : IEquatable<Keyword>
     {
         string _keyword;
         ColumnCollection _associatedColumns;
+        public string Name { get => _keyword; }
 
         /// <summary>
         /// Initialises a new instance of a keyword and an empty collection of columns.
@@ -45,5 +47,15 @@ namespace NewMovieDatabase
         /// </summary>
         /// <param name="column">Column to remove.</param>
         public void RemoveColumn(Column column) => _associatedColumns.Remove(column);
+
+        public void ChangeKeywordName(string newKeyword)
+        {
+            _keyword = newKeyword;
+        }
+
+        public bool Equals(Keyword other)
+        {
+            return _keyword == other.Name;
+        }
     }
 }

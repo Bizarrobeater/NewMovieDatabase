@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using NewMovieDatabase.SearchParameters;
 
-namespace NewMovieDatabase
+namespace NewMovieDatabase.Keywords
 {
     abstract class KeywordSearch
     {
-        string _keyword { get; set; }
+        private string _searchString;
         List<ISearchParameter> _searchParameters;
 
         public KeywordSearch(string searchString)
         {
-            
+            _searchString = searchString;
         }
     }
 }
