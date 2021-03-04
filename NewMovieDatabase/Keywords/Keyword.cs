@@ -8,7 +8,7 @@ namespace NewMovieDatabase.Keywords
     /// <summary>
     /// Represent the metadata regarding usable keywords.
     /// </summary>
-    public class Keyword : IEquatable<Keyword>
+    public class Keyword : IEquatable<Keyword>, IEquatable<string>
     {
         string _keyword;
         ColumnCollection _associatedColumns;
@@ -48,14 +48,33 @@ namespace NewMovieDatabase.Keywords
         /// <param name="column">Column to remove.</param>
         public void RemoveColumn(Column column) => _associatedColumns.Remove(column);
 
+
+        /// <summary>
+        /// Change the keyword string
+        /// </summary>
+        /// <param name="newKeyword"></param>
         public void ChangeKeywordName(string newKeyword)
         {
             _keyword = newKeyword;
         }
 
+
+        public bool validateKeywordName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        /// <inheritdoc/>
+        public bool Equals(string other)
+        {
+            return _keyword == other;
+        }
+        
+        /// <inheritdoc/>
         public bool Equals(Keyword other)
         {
-            return _keyword == other.Name;
+            return Equals(other.Name);
         }
     }
 }

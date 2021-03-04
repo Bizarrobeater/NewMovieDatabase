@@ -2,7 +2,7 @@
 
 namespace NewMovieDatabase.VerifyNames
 {
-    class KeywordNameException : Exception
+    public class KeywordNameException : Exception
     {
 
         public KeywordNameException(string name)

@@ -7,7 +7,7 @@ namespace NewMovieDatabase
     {
         private string _fullSearchString { get; }
         private List<string> _splitSearchString { get; set; }
-        private List<KeywordSearch> keywordSearches { get; set; }
+        //private List<KeywordSearch> keywordSearches { get; set; }
 
         private bool _randomSearch { get; }
 

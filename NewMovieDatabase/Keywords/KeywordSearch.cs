@@ -6,7 +6,8 @@ namespace NewMovieDatabase.Keywords
     abstract class KeywordSearch
     {
         private string _searchString;
-        List<ISearchParameter> _searchParameters;
+        private Keyword _keyword;
+        private List<ISearchParameter> _searchParameters;
 
         public KeywordSearch(string searchString)
         {
