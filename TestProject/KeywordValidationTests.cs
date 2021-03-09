@@ -3,6 +3,7 @@ using NewMovieDatabase.Keywords;
 
 namespace TestProject
 {
+    [TestFixture]
     public class KeywordValidationTests
     {
         KeywordNameValidation testValidation;

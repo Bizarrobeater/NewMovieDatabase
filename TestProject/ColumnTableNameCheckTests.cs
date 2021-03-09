@@ -3,6 +3,7 @@ using NewMovieDatabase.VerifyNames;
 
 namespace TestProject
 {
+    [TestFixture]
     class ColumnTableNameCheckTests
     {
         string partExpectedNamingConventionMessage = $" does not satisfy naming conventions." +

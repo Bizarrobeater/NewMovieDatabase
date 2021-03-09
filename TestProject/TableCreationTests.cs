@@ -4,6 +4,7 @@ using NewMovieDatabase.TableClasses;
 
 namespace TestProject
 {
+    [TestFixture]
     public class TableCreationTests
     {
         string tableName = "testTable";
