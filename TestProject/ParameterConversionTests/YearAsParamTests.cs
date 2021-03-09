@@ -1,16 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using NewMovieDatabase;
 using System;
+using NewMovieDatabase.SearchParameters;
 
-namespace NewMovieDataBaseTest
+namespace TestProject
 {
-    [TestClass]
+    [TestFixture]
     public class YearAsParamTests
     {
-        [TestMethod]
-        public void TestClassCreation()
+        [TestCase(2015)]
+        [TestCase(1999)]
+        [TestCase(2021)]
+        public void TestClassCreation(int testYear)
         {
-            int testYear = 2015;
             YearAsParam yearAsParam = new YearAsParam(testYear);
 
             DateTime startDate = DateTime.Parse($"{testYear}-01-01");
@@ -23,11 +25,13 @@ namespace NewMovieDataBaseTest
             Assert.AreEqual(expectedEnd, yearAsParam.YearEnd.ToString());
         }
 
-        [TestMethod]
-        public void TestCompareToSameType()
+        [TestCase(2015, 2020)]
+        [TestCase(2012, 2018)]
+        [TestCase(1999, 2000)]
+        [TestCase(1980, 2020)]
+        public void TestCompareToSameType(int lowYear, int highYear)
         {
-            int lowYear = 2015;
-            int highYear = 2020;
+
             YearAsParam low = new YearAsParam(lowYear);
             YearAsParam high = new YearAsParam(highYear);
 
@@ -36,8 +40,8 @@ namespace NewMovieDataBaseTest
             Assert.AreEqual(lowYear.CompareTo(lowYear), low.CompareTo(low));
         }
 
-        [TestMethod]
-        public void TestCompareToDifferentTypeg()
+        [Test]
+        public void TestCompareToDifferentType()
         {
             int testYear = 2020;
             YearAsParam yearAsParam = new YearAsParam(testYear);

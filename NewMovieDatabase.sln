@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewMovieDatabase", "NewMovieDatabase\NewMovieDatabase.csproj", "{B6A1EC42-6E81-4C8B-96D9-B4A13BD61810}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewMovieDataBaseTest", "NewMovieDataBaseTest\NewMovieDataBaseTest.csproj", "{CA2D1B5D-572F-47D5-9599-9EB9AE314071}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleForDebugging", "ConsoleForTesting\ConsoleForDebugging.csproj", "{41708977-136D-4811-86B1-82478AD0A3D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{E706D99D-0A72-4111-92EE-F6AD1D3A509B}"
@@ -21,10 +19,6 @@ Global
 		{B6A1EC42-6E81-4C8B-96D9-B4A13BD61810}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6A1EC42-6E81-4C8B-96D9-B4A13BD61810}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6A1EC42-6E81-4C8B-96D9-B4A13BD61810}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CA2D1B5D-572F-47D5-9599-9EB9AE314071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA2D1B5D-572F-47D5-9599-9EB9AE314071}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA2D1B5D-572F-47D5-9599-9EB9AE314071}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA2D1B5D-572F-47D5-9599-9EB9AE314071}.Release|Any CPU.Build.0 = Release|Any CPU
 		{41708977-136D-4811-86B1-82478AD0A3D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{41708977-136D-4811-86B1-82478AD0A3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41708977-136D-4811-86B1-82478AD0A3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
