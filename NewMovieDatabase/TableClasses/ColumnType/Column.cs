@@ -41,6 +41,7 @@ namespace NewMovieDatabase.TableClasses
         public Column(string columnName)
         {
             _columnName = columnName;
+            _dataType = ColumnDataType.Text;
         }
         
         /// <summary>
@@ -82,6 +83,16 @@ namespace NewMovieDatabase.TableClasses
         /// Removes the registrered table.
         /// </summary>
         public void RemoveTable() => _table = null;
+
+        /// <summary>
+        /// Replaces a currently registered table with a new table
+        /// </summary>
+        /// <param name="table">Table to replace current one</param>
+        public void ReplaceTable(Table table)
+        {
+            RemoveTable();
+            AddTable(table);
+        }
 
         /// <summary>
         /// Compares 2 columns based on name and datatype.

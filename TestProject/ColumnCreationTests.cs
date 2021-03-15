@@ -1,70 +1,80 @@
-﻿//using System.Collections.Generic;
-//using NUnit.Framework;
-//using NewMovieDatabase.TableClasses;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
+using NewMovieDatabase.TableClasses;
 
-//namespace TestProject
-//{
-//    public class ColumnCreationTests
-//    {
-//        string tableName = "testTable";
+namespace TestProject
+{
+    [TestFixture]
+    public class ColumnCreationTests
+    {
+        string tableName = "testTable";
 
-//        List<string> columnNamesNoExceptions = new List<string>
-//        {
-//            "column1",
-//            "column2",
-//            "column3",
-//        };
+        [TestCaseSource(nameof(ColumnNamesNoExceptions))]
+        public void TestCreateColumnOnlyName(string columnName)
+        {
+            Column column = new Column(columnName);
 
-
-//        // Tests related to the basic creation of tables
-//        private Table CreateTable(string tableName)
-//        {
-//            return new Table(tableName);
-//        }
-
-//        [TestMethod]
-//        public void TestTableToString()
-//        {
-//            Table table = CreateTable(tableName);
-
-//            Assert.AreEqual(tableName, table.ToString());
-//            Assert.AreEqual(tableName, table.TableName);
-//        }
-
-//        [TestMethod]
-//        public void TestTableEmptyCollection()
-//        {
-//            Table table = CreateTable(tableName);
-
-//            Assert.AreEqual(0, table.ColumnCount);
-//        }
-
-//        [TestMethod]
-//        public void TestTableNoPrimaryKey()
-//        {
-//            Table table = CreateTable(tableName);
-
-//            Assert.IsFalse(table.HasPrimaryKey);
-//        }
-
-//        // Test regarding the creation of columns
-//        private Column CreateColumnNoDataType(string ColumnName) => new Column(ColumnName);
+            Assert.AreEqual(columnName, column.ColumnName);
+            Assert.AreEqual(ColumnDataType.Text, column.DataType);
+            Assert.AreEqual(null, column.Table);
+        }
 
 
+        [TestCaseSource(nameof(ColumnNameNoExceptionWDatatype))]
+        public void TestCreateColumnNameAndDatatype(string columnName, ColumnDataType dataType)
+        {
+            Column column = new Column(columnName, dataType);
 
-//        private TableColumnCollection CreateColumnCollection(List<string> columnNames)
-//        {
-//            TableColumnCollection columns = new TableColumnCollection();
-//            Column temp;
-//            foreach (string columnName in columnNames)
-//            {
-//                temp = CreateColumnNoDataType(columnName);
-//                columns.Add(temp);
-//            }
-//            return columns;
-//        }
+            Assert.AreEqual(columnName, column.ColumnName);
+            Assert.AreEqual(dataType, column.DataType);
+            Assert.AreEqual(null, column.Table);
+        }
 
+        #region DATASOURCE_METHODS
+        private static string[] ColumnNamesNoExceptions()
+        {
+            return 
+                new string[]
+                {
+                    "column1",
+                    "column2",
+                    "column3",
+                };
+        }
 
+        private static IEnumerable<object[]> ColumnNameNoExceptionWDatatype()
+        {
+            string[] columnNames = ColumnNamesNoExceptions();
+            ColumnDataType[] dataTypes = GetColumnDataTypes();
 
-//    }
-//}
+            foreach (string columnName in columnNames)
+            {
+                foreach (ColumnDataType dataType in dataTypes)
+                {
+                    yield return
+                        new object[]
+                        {
+                            columnName, dataType
+                        };
+                }
+            }
+        }
+
+        private static ColumnDataType[] GetColumnDataTypes()
+        {
+            return 
+                new ColumnDataType[]
+                {
+                    ColumnDataType.Bool,
+                    ColumnDataType.Date,
+                    ColumnDataType.SecondaryKey,
+                    ColumnDataType.Double,
+                    ColumnDataType.Integer,
+                    ColumnDataType.PrimaryKey,
+                    ColumnDataType.Text,
+                    ColumnDataType.Double,
+                };
+        }
+        #endregion DATASOURCE_METHODS
+    }
+}
