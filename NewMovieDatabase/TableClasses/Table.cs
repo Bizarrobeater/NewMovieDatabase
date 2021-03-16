@@ -5,7 +5,7 @@ namespace NewMovieDatabase.TableClasses
     /// <summary>
     /// Represents the metadata for a table in a database
     /// </summary>
-    public class Table
+    public class Table //TODO make equatable
     {
         string _tableName;
         TableColumnCollection _columns;

@@ -132,7 +132,17 @@ namespace NewMovieDatabase.TableClasses
         /// <returns>
         /// True if it is the same table, false if it is not.
         /// </returns>
-        public bool Equals(Table other) => _table.Equals(other);
-
+        public bool Equals(Table other)
+        {
+            if (other == null && _table == null)
+            {
+                return true;
+            }
+            else if ((other == null && _table != null)
+                || (other != null && _table == null))
+                return false;
+            else
+                return _table.Equals(other);
+        }
     }
 }
