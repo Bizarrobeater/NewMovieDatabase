@@ -11,9 +11,6 @@ namespace TestProject
         ISearchParameter searchParameter;
         string expected;
 
-        int lowInt = 1234;
-        int highInt = 5000;
-
         // Testing int for generics
         [TestCase(1234)]
         [TestCase(5000)]

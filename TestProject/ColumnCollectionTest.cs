@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using NewMovieDatabase.TableClasses;
 using System;
+using System.Collections.Generic;
 
 namespace TestProject
 {
@@ -9,14 +10,17 @@ namespace TestProject
     {
 
         ColumnCollection columns;
-        private static Column[] basicColumns { get => SetupColumns(); }
-        private static Table[] basicTables { get => SetupTables(); }
-        private static ColumnDataType[] dataTypes { get => GetColumnDataTypes(); }
+        private static Column[] basicColumns;
+        private static Table[] basicTables;
+        private static ColumnDataType[] dataTypes;
 
         [SetUp]
         public void Setup()
         {
             columns = null;
+            basicColumns = SetupColumns();
+            basicTables = SetupTables();
+            dataTypes = GetColumnDataTypes();
         }
 
 
@@ -36,7 +40,7 @@ namespace TestProject
             Assert.AreEqual(columns.Count, basicColumns.Length);
         }
 
-        [TestCaseSource(nameof(basicColumns))]
+        [TestCaseSource(nameof(SetupColumns))]
         public void TestContainMethod(Column column)
         {
             columns = new ColumnCollection(basicColumns);
@@ -64,6 +68,29 @@ namespace TestProject
             columns.Add(newColumn);
             
             Assert.IsTrue(columns.Contains(newColumn));
+        }
+
+        [TestCaseSource(nameof(GetColumnsAndTables))]
+        public void TestAddColumnWTable(Column column, Table table)
+        {
+            columns = new ColumnCollection();
+            Column testColumn = new Column(column.ColumnName);
+
+            Assert.AreEqual(column, testColumn);
+
+            columns.Add(column, table);
+
+            Assert.IsTrue(columns.Contains(column));
+            Assert.AreNotEqual(column, testColumn);
+            Assert.AreEqual(table, column.Table);
+        }
+
+        [TestCaseSource(nameof(GetColumnAndIndex))]
+        public void TestColumnIndex(Column column, int index)
+        {
+            columns = new ColumnCollection(basicColumns);
+
+            Assert.AreEqual(column, columns[index]);
         }
 
         #region DATASOURCE_METHODS
@@ -123,6 +150,38 @@ namespace TestProject
                     ColumnDataType.Text,
                     ColumnDataType.Double,
                 };
+        }
+
+        private static IEnumerable<object[]> GetColumnsAndTables()
+        {
+            Column[] basicColumns = SetupColumns();
+            Table[] basicTables = SetupTables();
+
+            foreach (Column column in basicColumns)
+            {
+                foreach (Table table in basicTables)
+                {
+                    yield return
+                        new object[]
+                        {
+                            new Column(column.ColumnName), table
+                        };
+                }
+            }
+        }
+
+        private static IEnumerable<object[]> GetColumnAndIndex()
+        {
+            Column[] basicColumns = SetupColumns();
+
+            for (int i = 0; i < basicColumns.Length; i++)
+            {
+                yield return
+                    new object[]
+                    {
+                        basicColumns[i], i
+                    };
+            }
         }
 
 

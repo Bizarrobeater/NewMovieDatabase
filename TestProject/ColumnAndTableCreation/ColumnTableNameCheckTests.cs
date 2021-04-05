@@ -49,11 +49,20 @@ namespace TestProject
         }
 
         [TestCase("asdAA123_aa")]
-        public void TestNameSucces(string name)
+        public void TestColumnNameSucces(string name)
         {
             string message;
 
             Assert.IsTrue(rules.VerifyColumnName(name, out message));
+            Assert.AreEqual(succesMessage, message);
+        }
+
+        [TestCase("asdAA123_aa")]
+        public void TestTableNameSucces(string name)
+        {
+            string message;
+
+            Assert.IsTrue(rules.VerifyTableName(name, out message));
             Assert.AreEqual(succesMessage, message);
         }
 

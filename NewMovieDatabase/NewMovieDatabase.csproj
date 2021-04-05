@@ -60,6 +60,7 @@
     <Compile Include="Keywords\Collection\KeywordEnumerator.cs" />
     <Compile Include="Keywords\Exceptions\KeywordNameException.cs" />
     <Compile Include="Keywords\KeywordNameValidation.cs" />
+    <Compile Include="TableClasses\ColumnType\ColumnCollections\IColumnCollection.cs" />
     <Compile Include="VerifyNames\Exceptions\BasicNameConstraintException.cs" />
     <Compile Include="VerifyNames\Exceptions\KeywordNameException.cs" />
     <Compile Include="VerifyNames\IDataBaseNameRules.cs" />

@@ -47,7 +47,7 @@
             {
                 // throws an exception if the column name exists
                 if (column.Equals(newColumn.ColumnName))
-                throw new ColumnAlreadyExistsException(newColumn, column);
+                    throw new ColumnAlreadyExistsException(newColumn, column);
             }
             
             // Adds the table to the column (and throws error if the column is already associated with a table)

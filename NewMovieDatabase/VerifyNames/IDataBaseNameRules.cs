@@ -14,6 +14,7 @@
         /// True if the name is verified, else false.
         /// </returns>
         bool VerifyColumnName(string columnName, out string message);
+        
         /// <summary>
         /// Verifies a given table name.
         /// </summary>
