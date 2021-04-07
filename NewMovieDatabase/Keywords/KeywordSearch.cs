@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using NewMovieDatabase.SearchParameters;
+using NewMovieDatabase.SQLBuilder;
 
 namespace NewMovieDatabase.Keywords
 {

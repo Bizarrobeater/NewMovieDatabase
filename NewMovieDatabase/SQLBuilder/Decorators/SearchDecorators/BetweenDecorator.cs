@@ -1,9 +1,9 @@
-﻿namespace NewMovieDatabase.SearchParameters
+﻿namespace NewMovieDatabase.SQLBuilder
 {
     /// <summary>
     /// Decorator for ISearchParameters giving the "BETWEEN" keyword for the SQL string
     /// </summary>
-    public class BetweenDecorator : BaseSearchDecorator
+    public class BetweenDecorator : SQLCommandDecorator
     {
 
         /// <inheritdoc/>

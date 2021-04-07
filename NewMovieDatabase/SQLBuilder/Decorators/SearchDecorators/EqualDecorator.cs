@@ -1,9 +1,9 @@
-﻿namespace NewMovieDatabase.SearchParameters
+﻿namespace NewMovieDatabase.SQLBuilder
 {
     /// <summary>
     /// Decorator for ISearchParameters giving the "equal" operator for the SQL string
     /// </summary>
-    public class EqualDecorator : BaseSearchDecorator
+    public class EqualDecorator : SQLCommandDecorator
     {
         /// <inheritdoc/>
         public EqualDecorator(ISQLCommandBuilder searchParameter) 

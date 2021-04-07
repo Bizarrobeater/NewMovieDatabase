@@ -1,9 +1,9 @@
-﻿namespace NewMovieDatabase.SearchParameters
+﻿namespace NewMovieDatabase.SQLBuilder
 {
     /// <summary>
     /// Decorator for ISearchParameters giving the "smaller than or equal to" operator for the SQL string
     /// </summary>
-    public class SmallerThanDecorator : BaseSearchDecorator
+    public class SmallerThanDecorator : SQLCommandDecorator
     {
         /// <inheritdoc/>
         public SmallerThanDecorator(ISQLCommandBuilder commandBuilder)

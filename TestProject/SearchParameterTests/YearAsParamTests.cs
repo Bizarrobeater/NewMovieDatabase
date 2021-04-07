@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using NewMovieDatabase.SearchParameters;
+using NewMovieDatabase.SQLBuilder;
 
 namespace TestProject
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using NewMovieDatabase;
-using NewMovieDatabase.SearchParameters;
+using NewMovieDatabase.SQLBuilder;
 
 
 namespace ConsoleForTesting

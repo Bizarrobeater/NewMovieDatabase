@@ -1,4 +1,4 @@
-﻿namespace NewMovieDatabase.SearchParameters
+﻿namespace NewMovieDatabase.SQLBuilder
 {
     /// <summary>
     /// Class is a specific version of <see cref="SearchParameter{string}"/> where characters are escaped before returned.
