@@ -18,23 +18,23 @@ namespace ConsoleForTesting
             Console.WriteLine(baseDirectory);
         }
 
-        public static void TestEscapeCharacters()
-        {
-            string testString = "Es'cap'e";
-            string expected = @"LIKE '%Es''cap''e%'";
+        //public static void TestEscapeCharacters()
+        //{
+        //    string testString = "Es'cap'e";
+        //    string expected = @"LIKE '%Es''cap''e%'";
 
-            ISearchParameter search = new TextParamInclude(testString);
-            Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter}");
-        }
+        //    ISearchParameter search = new TextParamInclude(testString);
+        //    Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter}");
+        //}
 
-        public static void TestRemoveQuotes()
-        {
-            string testString = "\"Quotes Test\"";
-            string expected = @"LIKE '%Quotes Test%'";
+        //public static void TestRemoveQuotes()
+        //{
+        //    string testString = "\"Quotes Test\"";
+        //    string expected = @"LIKE '%Quotes Test%'";
 
-            ISearchParameter search = new TextParamInclude(testString);
-            Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter}");        
-        }
+        //    ISearchParameter search = new TextParamInclude(testString);
+        //    Console.WriteLine($"Expected: {expected}\nActual: {search.ReturnAsSQLParameter}");        
+        //}
 
         public static void TestDateTimeCompare()
         {

@@ -55,27 +55,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ColumnSearch\ColumnSearch.cs" />
+    <Compile Include="ColumnSearch\IColumnSearch.cs" />
     <Compile Include="Keywords\Exceptions\KeywordAlreadyExistException.cs" />
     <Compile Include="Keywords\Collection\KeywordCollection.cs" />
     <Compile Include="Keywords\Collection\KeywordEnumerator.cs" />
     <Compile Include="Keywords\Exceptions\KeywordNameException.cs" />
     <Compile Include="Keywords\KeywordNameValidation.cs" />
+    <Compile Include="SearchParameters\Decorators\BetweenDecorator.cs" />
+    <Compile Include="SearchParameters\Decorators\EqualDecorator.cs" />
+    <Compile Include="SearchParameters\Decorators\LargerThanDecorator.cs" />
+    <Compile Include="SearchParameters\Decorators\ParamDecorator.cs" />
+    <Compile Include="SearchParameters\Decorators\SmallerThanDecorator.cs" />
+    <Compile Include="SearchParameters\SearchBetweenParameter.cs" />
     <Compile Include="TableClasses\ColumnType\ColumnCollections\IColumnCollection.cs" />
     <Compile Include="VerifyNames\Exceptions\BasicNameConstraintException.cs" />
     <Compile Include="VerifyNames\Exceptions\KeywordNameException.cs" />
     <Compile Include="VerifyNames\IDataBaseNameRules.cs" />
     <Compile Include="Keywords\Keyword.cs" />
     <Compile Include="SearchParameters\CustomDateType\DateAsParam.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\Between\GenericParamBetween.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\Between\GenericParamBetweenBase.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\Between\GenericParamNotBetween.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\LargerThan\GenericParamNotLargerThan.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\GenericParamAbstract.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\Equal\GenericParamEqual.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\LargerThan\GenericParamLargerThan.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\Equal\GenericParamNotEqual.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\SmallerThan\GenericParamNotSmallerThan.cs" />
-    <Compile Include="SearchParameters\GenericSearchParameter\SmallerThan\GenericParamSmallerThan.cs" />
     <Compile Include="SearchParameters\ISearchParameter.cs" />
     <Compile Include="Keywords\KeywordSearch.cs" />
     <Compile Include="Search.cs" />
@@ -142,5 +140,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

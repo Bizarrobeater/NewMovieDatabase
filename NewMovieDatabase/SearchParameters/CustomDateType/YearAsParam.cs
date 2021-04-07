@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NewMovieDatabase
+namespace NewMovieDatabase.SearchParameters
 {
     // Class used for converting years into usuable SQL parameters
 

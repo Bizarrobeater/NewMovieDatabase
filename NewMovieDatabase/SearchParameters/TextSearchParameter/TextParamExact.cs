@@ -1,13 +1,13 @@
-﻿namespace NewMovieDatabase.SearchParameters
-{
-    // TODO: Comment
-    public class TextParamExact : TextParam
-    {
-        public TextParamExact(string parameter)
-            : base(parameter)
-        {
-        }
+﻿//namespace NewMovieDatabase.SearchParameters
+//{
+//    // TODO: Comment
+//    public class TextParamExact : TextParam
+//    {
+//        public TextParamExact(string parameter)
+//            : base(parameter)
+//        {
+//        }
 
-        public override string ReturnAsSQLParameter => $"LIKE '{_searchParameter}'";
-    }
-}
+//        public override string ReturnAsSQLParameter => $"LIKE '{_searchParameter}'";
+//    }
+//}

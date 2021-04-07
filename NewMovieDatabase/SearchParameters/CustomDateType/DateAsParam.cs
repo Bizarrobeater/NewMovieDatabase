@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NewMovieDatabase
+namespace NewMovieDatabase.SearchParameters
 {
     // Class used for converting date string into usable SQL parameters
 
