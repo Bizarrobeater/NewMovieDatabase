@@ -1,75 +1,73 @@
-//using NUnit.Framework;
-//using NewMovieDatabase.SearchParameters;
+using NUnit.Framework;
+using NewMovieDatabase.SearchParameters;
 
-//namespace TestProject
-//{
-//    [TestFixture]
-//    public class TextParamTests
-//    {
-//        string expected;
-//        ISearchParameter searchParameter;
+namespace TestProject
+{
+    [TestFixture]
+    public class TextParamTests
+    {
+        string expected;
+        ISearchParameter searchParameter;
 
-//        [TestCase("TestString")]
-//        [TestCase("AnotherString")]
-//        public void TestTextParamExact(string testString)
-//        {
-//            expected = $"LIKE '{testString}'";
+        [TestCase("TestString")]
+        [TestCase("AnotherString")]
+        public void TestTextParamExact(string testString)
+        {
+            expected = $"LIKE '{testString}'";
 
-//            searchParameter = new TextParamExact(testString);
-//            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-//        }
+            searchParameter = new TextSearchParameter(testString);
+            searchParameter = new ExactLikeDecorator(searchParameter);
 
-//        [TestCase("TestString")]
-//        [TestCase("AnotherString")]
-//        public void TestTextParamExclude(string testString)
-//        {
-//            expected = $@"NOT LIKE '%{testString}%'";
+            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+        }
 
-//            searchParameter = new TextParamExclude(testString);
-//            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-//        }
+        [TestCase("TestString")]
+        [TestCase("AnotherString")]
+        public void TestTextParamInclude(string testString)
+        {
+            expected = $@"LIKE '%{testString}%'";
 
-//        [TestCase("TestString")]
-//        [TestCase("AnotherString")]
-//        public void TestTextParamInclude(string testString)
-//        {
-//            expected = $@"LIKE '%{testString}%'";
+            searchParameter = new TextSearchParameter(testString);
+            searchParameter = new LikeDecorator(searchParameter);
 
-//            searchParameter = new TextParamInclude(testString);
-//            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-//        }
+            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+        }
 
-//        [TestCase("Test'Strin'g")]
-//        [TestCase("A'notherStrin'g")]
-//        public void TestEscapeCharacters(string testString)
-//        {
-//            string escapedString = new string(testString).Replace("'", "''");
-//            expected = $@"LIKE '%{escapedString}%'";
+        [TestCase("Test'Strin'g")]
+        [TestCase("A'notherStrin'g")]
+        public void TestRemoveQuotes(string testString)
+        {
+            string escapedString = new string(testString).Replace("'", "''");
+            expected = $"{escapedString}";
 
-//            searchParameter = new TextParamInclude(testString);
-//            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-//        }
+            searchParameter = new TextSearchParameter(testString);
 
-//        [TestCase("\"Test String\"")]
-//        [TestCase("\"Another String\"")]
-//        public void TestRemoveQuotes(string testString)
-//        {
-//            string removedQuotes = new string(testString).Replace("\"", "");
-//            expected = $@"LIKE '%{removedQuotes}%'";
+            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+        }
 
-//            searchParameter = new TextParamInclude(testString);
-//            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-//        }
+        [TestCase("\"Test String\"")]
+        [TestCase("\"Another String\"")]
+        public void TestRemoveSlash(string testString)
+        {
+            string escapedString = new string(testString).Replace("\"", "");
+            expected = $"{escapedString}";
 
-//        [TestCase("TestString      ")]
-//        [TestCase("        AnotherString    ")]
-//        public void TestTrim(string testString)
-//        {
-//            string trimmedString = new string(testString).Trim();
-//            expected = $@"LIKE '%{trimmedString}%'";
+            searchParameter = new TextSearchParameter(testString);
 
-//            searchParameter = new TextParamInclude(testString);
-//            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-//        }
-//    }
-//}
+
+            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+        }
+
+        [TestCase("TestString      ")]
+        [TestCase("        AnotherString    ")]
+        public void TestTrim(string testString)
+        {
+            string trimmedString = new string(testString).Trim();
+            expected = $"{trimmedString}";
+
+            searchParameter = new TextSearchParameter(testString);
+
+            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+        }
+    }
+}

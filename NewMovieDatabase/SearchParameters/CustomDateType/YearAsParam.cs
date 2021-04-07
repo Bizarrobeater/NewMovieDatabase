@@ -37,5 +37,13 @@ namespace NewMovieDatabase.SearchParameters
         {
             return _year.CompareTo(other.Year);
         }
+
+        public static explicit operator DateAsParam[](YearAsParam year) 
+        {
+            return new DateAsParam[]{
+                year.YearStart,
+                year.YearEnd,
+            };
+        }
     }
 }

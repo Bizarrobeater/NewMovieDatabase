@@ -240,7 +240,27 @@ namespace TestProject
 
             Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
         }
-        
+
+        #region YEAR_TESTS
+
+        //[TestCase(2020)]
+        //[TestCase(2012)]
+        //public void TestGenericParamBetweenDate(int testYear)
+        //{
+        //    expected = $"BETWEEN '{testYear}-01-01' AND '{testYear}-12-31'";
+
+        //    YearAsParam year = new YearAsParam(testYear);
+
+        //    searchParameter = new SearchBetweenParameter<DateAsParam>();
+        //    searchParameter = new BetweenDecorator(searchParameter);
+
+
+
+        //    Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+        //}
+
+        #endregion YEAR_TESTS
+
         #endregion DATE_TESTS
     }
 }
