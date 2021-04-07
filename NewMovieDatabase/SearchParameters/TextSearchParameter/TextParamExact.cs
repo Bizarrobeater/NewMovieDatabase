@@ -1,5 +1,6 @@
 ﻿namespace NewMovieDatabase.SearchParameters
 {
+    // TODO: Comment
     public class TextParamExact : TextParam
     {
         public TextParamExact(string parameter)

@@ -1,5 +1,6 @@
 ﻿namespace NewMovieDatabase.SearchParameters
 {
+    // TODO: Comment
     public abstract class TextParam : SearchParameter<string>
     {
         public TextParam(string parameter) : base(parameter)

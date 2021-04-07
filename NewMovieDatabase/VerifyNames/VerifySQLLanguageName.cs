@@ -11,6 +11,8 @@ namespace NewMovieDatabase.VerifyNames
     /// </summary>
     public abstract class VerifySQLLanguageName : IDataBaseNameRules
     {
+        // TODO: Comment
+
         internal string _keywordFilename;
         internal Lazy<List<string>> _keywordList;
 

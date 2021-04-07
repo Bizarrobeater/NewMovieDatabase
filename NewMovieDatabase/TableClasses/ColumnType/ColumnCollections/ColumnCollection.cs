@@ -5,18 +5,28 @@ using System.Linq;
 
 namespace NewMovieDatabase.TableClasses
 {
+    // TODO: Comment
+
     /// <summary>
-    /// Collection of columns.
+    /// Represents a collection of columns, that can be accessed by index.
+    /// Provides methods for searching, adding, removing and clearing the collection.
     /// </summary>
     public class ColumnCollection : ICollection<Column>
     {
         protected List<Column> _innerCollection;
 
+        /// <summary>
+        /// Initialises an empty collection.
+        /// </summary>
         public ColumnCollection()
         {
             _innerCollection = new List<Column>();
         }
 
+        /// <summary>
+        /// Initialises a collection that contains elements copied from the provided collection.
+        /// </summary>
+        /// <param name="columns">Collection whose elements are copied to the new collection.</param>
         public ColumnCollection(IEnumerable<Column> columns)
         {
             _innerCollection = columns.ToList();

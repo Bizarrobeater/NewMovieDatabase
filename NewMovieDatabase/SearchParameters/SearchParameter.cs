@@ -2,6 +2,7 @@
 
 namespace NewMovieDatabase.SearchParameters
 {
+    // TODO: Comment
     public abstract class SearchParameter<T> : ISearchParameter where T: IComparable<T>
     {
         protected T _searchParameter { get; set; }

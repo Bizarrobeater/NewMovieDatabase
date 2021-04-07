@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace NewMovieDatabase.TableClasses
 {
+    // TODO: Comment
+
     /// <summary>
     /// ColumnCollection enumerator for use with foreach.
     /// </summary>

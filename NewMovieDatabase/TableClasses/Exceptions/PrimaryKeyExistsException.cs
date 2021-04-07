@@ -5,6 +5,7 @@ namespace NewMovieDatabase.TableClasses
 {
     class PrimaryKeyExistsException : Exception
     {
+        // TODO: Comment
         public PrimaryKeyExistsException()
         {
         }

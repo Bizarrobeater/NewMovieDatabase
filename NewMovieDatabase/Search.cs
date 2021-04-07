@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using NewMovieDatabase.Keywords;
 
 namespace NewMovieDatabase
 {
     class Search
     {
-        private string _fullSearchString { get; }
-        private List<string> _splitSearchString { get; set; }
+        private KeywordCollection keywords;
+        private string _fullSearchString;
+        private List<string> _splitSearchString;
         //private List<KeywordSearch> keywordSearches { get; set; }
 
         private bool _randomSearch { get; }
@@ -22,7 +24,7 @@ namespace NewMovieDatabase
         private List<string> SplitSearchString(string searchString)
         {
             // Regex explanation:
-            // (@[^@^ ]+)? - looks for a word that starts with @ but does not contain @ or space, these are "@keywords"
+            // (@[^@^ ]+)? - looks for a word that starts with @ but does not contain more @'s or space, these are "@keywords"
             // ([^@]+)+?) - looks for text that does not contain @, these are the search parameters
             // the keywords are optional
             // Ex.: "@keyword param" - is a match

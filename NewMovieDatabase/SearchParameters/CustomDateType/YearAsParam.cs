@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace NewMovieDatabase
 {
     // Class used for converting years into usuable SQL parameters
+
+    // TODO: Comment
     public class YearAsParam : IComparable<YearAsParam>, IComparable<DateAsParam>
     {
         DateAsParam _yearStart;

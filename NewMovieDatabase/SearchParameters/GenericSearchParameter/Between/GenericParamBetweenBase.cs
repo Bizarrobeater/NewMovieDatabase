@@ -2,6 +2,7 @@
 
 namespace NewMovieDatabase.SearchParameters
 {
+    // TODO: Comment
     public abstract class GenericParamBetweenBase<T> : GenericParamAbstract<T> where T: IComparable<T>
     {
         internal T _secondSearchParameter { get; private set; }

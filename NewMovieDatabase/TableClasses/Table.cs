@@ -2,6 +2,8 @@
 
 namespace NewMovieDatabase.TableClasses
 {
+    // TODO: Comment
+
     /// <summary>
     /// Represents the metadata for a table in a database
     /// </summary>

@@ -3,6 +3,8 @@
 namespace NewMovieDatabase
 {
     // Class used for converting date string into usable SQL parameters
+
+    // TODO: Comment
     public class DateAsParam : IComparable<DateAsParam>, IComparable<YearAsParam>, IComparable<DateTime>
     {
         DateTime _date;
