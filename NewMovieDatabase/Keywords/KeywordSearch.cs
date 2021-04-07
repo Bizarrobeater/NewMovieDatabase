@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using NewMovieDatabase.SearchParameters;
+using NewMovieDatabase.SQLBuilder;
 
 namespace NewMovieDatabase.Keywords
 {
@@ -7,7 +7,7 @@ namespace NewMovieDatabase.Keywords
     {
         private string _searchString;
         private Keyword _keyword = null;
-        private List<ISearchParameter> _searchParameters;
+        private List<ISQLCommandBuilder> _searchParameters;
 
         public KeywordSearch(string searchString)
         {

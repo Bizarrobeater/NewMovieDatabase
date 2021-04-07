@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
-using NewMovieDatabase;
 using System;
-using NewMovieDatabase.SearchParameters;
+using NewMovieDatabase.SQLBuilder;
 
 namespace TestProject
 {
@@ -45,7 +44,7 @@ namespace TestProject
         {
             int testYear = 2020;
             YearAsParam yearAsParam = new YearAsParam(testYear);
-            
+
             DateAsParam lowCompareDate = new DateAsParam("2010-01-01");
             DateAsParam highCompareDate = new DateAsParam("2021-01-01");
             DateAsParam sameYearCompareDate = new DateAsParam("2020-01-01");

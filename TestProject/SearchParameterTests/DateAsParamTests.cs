@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using NewMovieDatabase;
+using NewMovieDatabase.SQLBuilder;
 using System;
 
 namespace TestProject
@@ -19,7 +19,7 @@ namespace TestProject
             convertedDate = actualDate.ToString("yyyy-MM-dd");
             expected = $"'{convertedDate}'";
         }
-        
+
 
         [TestCase("01-01-2020")]
         [TestCase("2020-01-01")]
