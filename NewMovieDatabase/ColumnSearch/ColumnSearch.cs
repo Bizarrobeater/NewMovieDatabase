@@ -10,7 +10,7 @@ namespace NewMovieDatabase.ColumnSearch
     public class ColumnSearch : IColumnSearch
     {
         Column _column;
-        List<ISearchParameter> _searchParameters;
+        List<ISQLCommandBuilder> _searchParameters;
 
         public ColumnSearch(Column column, string searchParams)
         {

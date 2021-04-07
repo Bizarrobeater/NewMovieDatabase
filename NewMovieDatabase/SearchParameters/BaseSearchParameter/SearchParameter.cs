@@ -4,13 +4,13 @@ namespace NewMovieDatabase.SearchParameters
 {
 
     /// <summary>
-    /// A base Search Parameter class, implementing the <see cref="ISearchParameter"/> interface.
+    /// A base Search Parameter class, implementing the <see cref="ISQLCommandBuilder"/> interface.
     /// Class is used for return the base search parameter that will be searched for in the database.
     /// </summary>
     /// <typeparam name="T">Any type of <see cref="IComparable{T}"/></typeparam>
-    public class SearchParameter<T> : ISearchParameter where T: IComparable<T>
+    public class SearchParameter<T> : ISQLCommandBuilder where T: IComparable<T>
     {
-        protected ISearchParameter _searchParameter = null;
+        protected ISQLCommandBuilder _searchParameter = null;
         protected T _baseSearchParameter { get; set; }
         
         public SearchParameter(T searchParameter)
@@ -25,7 +25,7 @@ namespace NewMovieDatabase.SearchParameters
         }
 
         /// <inheritdoc/>
-        public virtual string AsSQLString 
+        public virtual string ToSQLString 
         {
             get
             {
@@ -40,7 +40,7 @@ namespace NewMovieDatabase.SearchParameters
 
         private string BetweenSQLString()
         {
-            return $"{_baseSearchParameter} AND {_searchParameter.AsSQLString}";
+            return $"{_baseSearchParameter} AND {_searchParameter.ToSQLString}";
         }
     }
 }

@@ -7,7 +7,7 @@ namespace NewMovieDatabase.Keywords
     {
         private string _searchString;
         private Keyword _keyword = null;
-        private List<ISearchParameter> _searchParameters;
+        private List<ISQLCommandBuilder> _searchParameters;
 
         public KeywordSearch(string searchString)
         {

@@ -11,7 +11,7 @@
         }
 
         /// <inheritdoc/>
-        public override string AsSQLString { get => _searchParameter.ToString(); }
+        public override string ToSQLString { get => _baseSearchParameter.ToString(); }
 
         /// <summary>
         /// Escapes certain characters in a string search as to block injection.

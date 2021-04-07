@@ -7,7 +7,7 @@ namespace TestProject
     [TestFixture]
     public class GenericDecoratorTests
     {
-        ISearchParameter searchParameter;
+        ISQLCommandBuilder searchParameter;
         string expected;
 
         #region INT_TESTS
@@ -20,7 +20,7 @@ namespace TestProject
             searchParameter = new SearchParameter<int>(testInt);
             searchParameter = new EqualDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         [TestCase(1234)]
@@ -31,7 +31,7 @@ namespace TestProject
             searchParameter = new SearchParameter<int>(testInt);
             searchParameter = new LargerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -43,7 +43,7 @@ namespace TestProject
             searchParameter = new SearchParameter<int>(testInt);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -55,7 +55,7 @@ namespace TestProject
             searchParameter = new SearchParameter<int>(lowInt, highInt);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -78,7 +78,7 @@ namespace TestProject
             searchParameter = new SearchParameter<int>(testInt, testInt);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
         #endregion INT_TESTS
 
@@ -91,7 +91,7 @@ namespace TestProject
             searchParameter = new SearchParameter<double>(testDouble);
             searchParameter = new EqualDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -103,7 +103,7 @@ namespace TestProject
             searchParameter = new SearchParameter<double>(testDouble);
             searchParameter = new LargerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -115,7 +115,7 @@ namespace TestProject
             searchParameter = new SearchParameter<double>(testDouble);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -127,7 +127,7 @@ namespace TestProject
             searchParameter = new SearchParameter<double>(lowDouble, highDouble);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -150,7 +150,7 @@ namespace TestProject
             searchParameter = new SearchParameter<double>(testDouble, testDouble);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         #endregion DOUBLE_TESTS
@@ -167,7 +167,7 @@ namespace TestProject
             searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
             searchParameter = new EqualDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -181,7 +181,7 @@ namespace TestProject
             searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
             searchParameter = new LargerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
 
@@ -195,7 +195,7 @@ namespace TestProject
             searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         [TestCase("2020-01-01", "2020-12-31")]
@@ -210,7 +210,7 @@ namespace TestProject
             searchParameter = new SearchParameter<DateAsParam>(low, high);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         //[TestCase("2020-01-01", "2020-12-31")]
@@ -238,7 +238,7 @@ namespace TestProject
             searchParameter = new SearchParameter<DateAsParam>(dateAsParam, dateAsParam);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         #region YEAR_TESTS

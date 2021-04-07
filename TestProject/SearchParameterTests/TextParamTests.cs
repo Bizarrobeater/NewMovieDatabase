@@ -7,7 +7,7 @@ namespace TestProject
     public class TextParamTests
     {
         string expected;
-        ISearchParameter searchParameter;
+        ISQLCommandBuilder searchParameter;
 
         [TestCase("TestString")]
         [TestCase("AnotherString")]
@@ -16,9 +16,10 @@ namespace TestProject
             expected = $"LIKE '{testString}'";
 
             searchParameter = new TextSearchParameter(testString);
-            searchParameter = new ExactLikeDecorator(searchParameter);
+            searchParameter = new TextWrapDecorator(searchParameter);
+            searchParameter = new LikeDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         [TestCase("TestString")]
@@ -28,9 +29,11 @@ namespace TestProject
             expected = $@"LIKE '%{testString}%'";
 
             searchParameter = new TextSearchParameter(testString);
+            searchParameter = new WildCardWrapDecorator(searchParameter);
+            searchParameter = new TextWrapDecorator(searchParameter);
             searchParameter = new LikeDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         [TestCase("Test'Strin'g")]
@@ -42,7 +45,7 @@ namespace TestProject
 
             searchParameter = new TextSearchParameter(testString);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         [TestCase("\"Test String\"")]
@@ -55,7 +58,7 @@ namespace TestProject
             searchParameter = new TextSearchParameter(testString);
 
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
 
         [TestCase("TestString      ")]
@@ -67,7 +70,7 @@ namespace TestProject
 
             searchParameter = new TextSearchParameter(testString);
 
-            Assert.AreEqual(expected, searchParameter.AsSQLString);
+            Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
     }
 }

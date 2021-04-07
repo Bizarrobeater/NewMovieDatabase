@@ -3,10 +3,10 @@
     /// <summary>
     /// Decorator for ISearchParameters giving the "equal" operator for the SQL string
     /// </summary>
-    public class EqualDecorator : ParamDecorator
+    public class EqualDecorator : BaseSearchDecorator
     {
         /// <inheritdoc/>
-        public EqualDecorator(ISearchParameter searchParameter) 
+        public EqualDecorator(ISQLCommandBuilder searchParameter) 
             : base(searchParameter)
         {
             _modifier = "=";

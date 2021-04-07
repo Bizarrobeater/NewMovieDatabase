@@ -3,11 +3,11 @@
     /// <summary>
     /// Interface used to contruct SQL strings.
     /// </summary>
-    public interface ISearchParameter
+    public interface ISQLCommandBuilder
     {
         /// <summary>
         /// Returns a string corresponding to an SQL string.
         /// </summary>
-        string AsSQLString { get; }
+        string ToSQLString { get; }
     }
 }
