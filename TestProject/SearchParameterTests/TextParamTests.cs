@@ -18,7 +18,7 @@ namespace TestProject
             searchParameter = new TextSearchParameter(testString);
             searchParameter = new ExactLikeDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
         [TestCase("TestString")]
@@ -30,7 +30,7 @@ namespace TestProject
             searchParameter = new TextSearchParameter(testString);
             searchParameter = new LikeDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
         [TestCase("Test'Strin'g")]
@@ -42,7 +42,7 @@ namespace TestProject
 
             searchParameter = new TextSearchParameter(testString);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
         [TestCase("\"Test String\"")]
@@ -55,7 +55,7 @@ namespace TestProject
             searchParameter = new TextSearchParameter(testString);
 
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
         [TestCase("TestString      ")]
@@ -67,7 +67,7 @@ namespace TestProject
 
             searchParameter = new TextSearchParameter(testString);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
     }
 }

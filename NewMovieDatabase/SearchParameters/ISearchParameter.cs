@@ -1,8 +1,13 @@
 ﻿namespace NewMovieDatabase.SearchParameters
 {
-    // TODO: Comment
+    /// <summary>
+    /// Interface used to contruct SQL strings.
+    /// </summary>
     public interface ISearchParameter
     {
-        string ReturnAsSQLParameter { get; }
+        /// <summary>
+        /// Returns a string corresponding to an SQL string.
+        /// </summary>
+        string AsSQLString { get; }
     }
 }

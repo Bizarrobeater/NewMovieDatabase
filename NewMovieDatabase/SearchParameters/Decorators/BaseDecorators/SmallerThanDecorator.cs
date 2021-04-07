@@ -1,10 +1,11 @@
 ﻿namespace NewMovieDatabase.SearchParameters
 {
     /// <summary>
-    /// Concrete decorator class for "smaller than" search modifiers
+    /// Decorator for ISearchParameters giving the "smaller than or equal to" operator for the SQL string
     /// </summary>
     public class SmallerThanDecorator : ParamDecorator
     {
+        /// <inheritdoc/>
         public SmallerThanDecorator(ISearchParameter searchParameter)
             : base(searchParameter)
         {

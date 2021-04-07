@@ -1,18 +1,25 @@
 ﻿namespace NewMovieDatabase.SearchParameters
 {
-    // TODO: Comment
+    /// <summary>
+    /// Class is a specific version of <see cref="SearchParameter{string}"/> where characters are escaped before returned.
+    /// </summary>
     public class TextSearchParameter : SearchParameter<string>
     {
         public TextSearchParameter(string parameter) : base(parameter)
         {
-            _searchParameter = EscapeTextParameter();
+            _baseSearchParameter = EscapeTextParameter();
         }
 
-        public override string ReturnAsSQLParameter { get => _searchParameter.ToString(); }
+        /// <inheritdoc/>
+        public override string AsSQLString { get => _searchParameter.ToString(); }
 
+        /// <summary>
+        /// Escapes certain characters in a string search as to block injection.
+        /// </summary>
+        /// <returns>Escaped search parameter string.</returns>
         private string EscapeTextParameter()
         {
-            return _searchParameter.Replace("\"", "").Replace("'", "''").Trim();
+            return _baseSearchParameter.Replace("\"", "").Replace("'", "''").Trim();
         }
     }
 }

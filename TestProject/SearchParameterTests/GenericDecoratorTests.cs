@@ -20,7 +20,7 @@ namespace TestProject
             searchParameter = new SearchParameter<int>(testInt);
             searchParameter = new EqualDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
         [TestCase(1234)]
@@ -31,7 +31,7 @@ namespace TestProject
             searchParameter = new SearchParameter<int>(testInt);
             searchParameter = new LargerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
@@ -43,7 +43,7 @@ namespace TestProject
             searchParameter = new SearchParameter<int>(testInt);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
@@ -52,33 +52,33 @@ namespace TestProject
         public void TestGenericParamBetweenInt(int lowInt, int highInt)
         {
             expected = $"BETWEEN {lowInt} AND {highInt}";
-            searchParameter = new SearchBetweenParameter<int>(lowInt, highInt);
+            searchParameter = new SearchParameter<int>(lowInt, highInt);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
-        [TestCase(1234, 5000)]
-        [TestCase(6000, 7000)]
-        public void TestGenericParamBetweenHighFirstInt(int lowInt, int highInt)
-        {
-            expected = $"BETWEEN {lowInt} AND {highInt}";
-            searchParameter = new SearchBetweenParameter<int>(highInt, lowInt);
-            searchParameter = new BetweenDecorator(searchParameter);
+        //[TestCase(1234, 5000)]
+        //[TestCase(6000, 7000)]
+        //public void TestGenericParamBetweenHighFirstInt(int lowInt, int highInt)
+        //{
+        //    expected = $"BETWEEN {lowInt} AND {highInt}";
+        //    searchParameter = new SearchBetweenParameter<int>(highInt, lowInt);
+        //    searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-        }
+        //    Assert.AreEqual(expected, searchParameter.AsSQLString);
+        //}
 
         [TestCase(1234)]
         [TestCase(5000)]
         public void TestGenericParamBetweenSameNumberInt(int testInt)
         {
             expected = $"BETWEEN {testInt} AND {testInt}";
-            searchParameter = new SearchBetweenParameter<int>(testInt, testInt);
+            searchParameter = new SearchParameter<int>(testInt, testInt);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
         #endregion INT_TESTS
 
@@ -91,7 +91,7 @@ namespace TestProject
             searchParameter = new SearchParameter<double>(testDouble);
             searchParameter = new EqualDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
@@ -103,7 +103,7 @@ namespace TestProject
             searchParameter = new SearchParameter<double>(testDouble);
             searchParameter = new LargerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
@@ -115,7 +115,7 @@ namespace TestProject
             searchParameter = new SearchParameter<double>(testDouble);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
@@ -124,33 +124,33 @@ namespace TestProject
         public void TestGenericParamBetweenDouble(double lowDouble, double highDouble)
         {
             expected = $"BETWEEN {lowDouble} AND {highDouble}";
-            searchParameter = new SearchBetweenParameter<double>(lowDouble, highDouble);
+            searchParameter = new SearchParameter<double>(lowDouble, highDouble);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
-        [TestCase(5.5, 7.6)]
-        [TestCase(7.6, 96.5)]
-        public void TestGenericParamBetweenHighFirstDouble(double lowDouble, double highDouble)
-        {
-            expected = $"BETWEEN {lowDouble} AND {highDouble}";
-            searchParameter = new SearchBetweenParameter<double>(highDouble, lowDouble);
-            searchParameter = new BetweenDecorator(searchParameter);
+        //[TestCase(5.5, 7.6)]
+        //[TestCase(7.6, 96.5)]
+        //public void TestGenericParamBetweenHighFirstDouble(double lowDouble, double highDouble)
+        //{
+        //    expected = $"BETWEEN {lowDouble} AND {highDouble}";
+        //    searchParameter = new SearchBetweenParameter<double>(highDouble, lowDouble);
+        //    searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-        }
+        //    Assert.AreEqual(expected, searchParameter.AsSQLString);
+        //}
 
         [TestCase(5.5)]
         [TestCase(7.6)]
         public void TestGenericParamBetweenSameNumberDouble(double testDouble)
         {
             expected = $"BETWEEN {testDouble} AND {testDouble}";
-            searchParameter = new SearchBetweenParameter<double>(testDouble, testDouble);
+            searchParameter = new SearchParameter<double>(testDouble, testDouble);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
         #endregion DOUBLE_TESTS
@@ -167,7 +167,7 @@ namespace TestProject
             searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
             searchParameter = new EqualDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
@@ -181,7 +181,7 @@ namespace TestProject
             searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
             searchParameter = new LargerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
 
@@ -195,7 +195,7 @@ namespace TestProject
             searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
         [TestCase("2020-01-01", "2020-12-31")]
@@ -207,26 +207,26 @@ namespace TestProject
             DateAsParam low = new DateAsParam(lowDate);
             DateAsParam high = new DateAsParam(highDate);
 
-            searchParameter = new SearchBetweenParameter<DateAsParam>(low, high);
+            searchParameter = new SearchParameter<DateAsParam>(low, high);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
-        [TestCase("2020-01-01", "2020-12-31")]
-        [TestCase("2019-01-01", "2019-01-02")]
-        public void TestGenericParamBetweenHighFirstDate(string lowDate, string highDate)
-        {
-            expected = $"BETWEEN '{lowDate}' AND '{highDate}'";
+        //[TestCase("2020-01-01", "2020-12-31")]
+        //[TestCase("2019-01-01", "2019-01-02")]
+        //public void TestGenericParamBetweenHighFirstDate(string lowDate, string highDate)
+        //{
+        //    expected = $"BETWEEN '{lowDate}' AND '{highDate}'";
 
-            DateAsParam low = new DateAsParam(lowDate);
-            DateAsParam high = new DateAsParam(highDate);
+        //    DateAsParam low = new DateAsParam(lowDate);
+        //    DateAsParam high = new DateAsParam(highDate);
 
-            searchParameter = new SearchBetweenParameter<DateAsParam>(high, low);
-            searchParameter = new BetweenDecorator(searchParameter);
+        //    searchParameter = new SearchParameter<DateAsParam>(high, low);
+        //    searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
-        }
+        //    Assert.AreEqual(expected, searchParameter.AsSQLString);
+        //}
 
         [TestCase("2020-01-01")]
         [TestCase("2020-12-31")]
@@ -235,10 +235,10 @@ namespace TestProject
             expected = $"BETWEEN '{testDate}' AND '{testDate}'";
 
             DateAsParam dateAsParam = new DateAsParam(testDate);
-            searchParameter = new SearchBetweenParameter<DateAsParam>(dateAsParam, dateAsParam);
+            searchParameter = new SearchParameter<DateAsParam>(dateAsParam, dateAsParam);
             searchParameter = new BetweenDecorator(searchParameter);
 
-            Assert.AreEqual(expected, searchParameter.ReturnAsSQLParameter);
+            Assert.AreEqual(expected, searchParameter.AsSQLString);
         }
 
         #region YEAR_TESTS
