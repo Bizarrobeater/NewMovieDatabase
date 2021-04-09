@@ -50,7 +50,7 @@ namespace TestProject
             column.AddTable(table);
 
             Assert.AreEqual(table, column.Table);
-            Assert.AreEqual($"{tableName}-{columnName}", column.FullName);
+            Assert.AreEqual($"{tableName}.{columnName}", column.FullName);
         }
 
         [TestCaseSource(nameof(ColumnNameNoExceptionWDatatype))]

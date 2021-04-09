@@ -6,14 +6,15 @@
     public abstract class BaseWrapper : ISQLCommandBuilder
     {
         protected ISQLCommandBuilder _commandBuilder;
-        protected char _wrapChar;
+        protected string _startWrap;
+        protected string _endWrap;
 
         /// <inheritdoc/>
         public virtual string ToSQLString 
         {
             get
             {
-                return $"{_wrapChar}{_commandBuilder.ToSQLString}{_wrapChar}";
+                return $"{_startWrap}{_commandBuilder.ToSQLString}{_endWrap}";
             } 
         }
     }

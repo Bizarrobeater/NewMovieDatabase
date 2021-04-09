@@ -17,7 +17,7 @@ namespace TestProject
         public void TestGenericParamEqualInt(int testInt)
         {
             expected = $"= {testInt}";
-            searchParameter = new SearchParameter<int>(testInt);
+            searchParameter = new SearchParameterDecorator<int>(testInt);
             searchParameter = new EqualDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -28,7 +28,7 @@ namespace TestProject
         public void TestGenericParamLargerThanInt(int testInt)
         {
             expected = $">= {testInt}";
-            searchParameter = new SearchParameter<int>(testInt);
+            searchParameter = new SearchParameterDecorator<int>(testInt);
             searchParameter = new LargerThanDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -40,7 +40,7 @@ namespace TestProject
         public void TestGenericParamSmallerThanInt(int testInt)
         {
             expected = $"<= {testInt}";
-            searchParameter = new SearchParameter<int>(testInt);
+            searchParameter = new SearchParameterDecorator<int>(testInt);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -52,7 +52,7 @@ namespace TestProject
         public void TestGenericParamBetweenInt(int lowInt, int highInt)
         {
             expected = $"BETWEEN {lowInt} AND {highInt}";
-            searchParameter = new SearchParameter<int>(lowInt, highInt);
+            searchParameter = new SearchParameterDecorator<int>(lowInt, highInt);
             searchParameter = new BetweenDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -75,7 +75,7 @@ namespace TestProject
         public void TestGenericParamBetweenSameNumberInt(int testInt)
         {
             expected = $"BETWEEN {testInt} AND {testInt}";
-            searchParameter = new SearchParameter<int>(testInt, testInt);
+            searchParameter = new SearchParameterDecorator<int>(testInt, testInt);
             searchParameter = new BetweenDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -88,7 +88,7 @@ namespace TestProject
         public void TestGenericParamEqualDouble(double testDouble)
         {
             expected = $"= {testDouble}";
-            searchParameter = new SearchParameter<double>(testDouble);
+            searchParameter = new SearchParameterDecorator<double>(testDouble);
             searchParameter = new EqualDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -100,7 +100,7 @@ namespace TestProject
         public void TestGenericParamLargerThanDouble(double testDouble)
         {
             expected = $">= {testDouble}";
-            searchParameter = new SearchParameter<double>(testDouble);
+            searchParameter = new SearchParameterDecorator<double>(testDouble);
             searchParameter = new LargerThanDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -112,7 +112,7 @@ namespace TestProject
         public void TestGenericParamSmallerThanDouble(double testDouble)
         {
             expected = $"<= {testDouble}";
-            searchParameter = new SearchParameter<double>(testDouble);
+            searchParameter = new SearchParameterDecorator<double>(testDouble);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -124,7 +124,7 @@ namespace TestProject
         public void TestGenericParamBetweenDouble(double lowDouble, double highDouble)
         {
             expected = $"BETWEEN {lowDouble} AND {highDouble}";
-            searchParameter = new SearchParameter<double>(lowDouble, highDouble);
+            searchParameter = new SearchParameterDecorator<double>(lowDouble, highDouble);
             searchParameter = new BetweenDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -147,7 +147,7 @@ namespace TestProject
         public void TestGenericParamBetweenSameNumberDouble(double testDouble)
         {
             expected = $"BETWEEN {testDouble} AND {testDouble}";
-            searchParameter = new SearchParameter<double>(testDouble, testDouble);
+            searchParameter = new SearchParameterDecorator<double>(testDouble, testDouble);
             searchParameter = new BetweenDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -164,7 +164,7 @@ namespace TestProject
             expected = $"= '{testDate}'";
 
             DateAsParam dateAsParam = new DateAsParam(testDate);
-            searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
+            searchParameter = new SearchParameterDecorator<DateAsParam>(dateAsParam);
             searchParameter = new EqualDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -178,7 +178,7 @@ namespace TestProject
             expected = $">= '{testDate}'";
 
             DateAsParam dateAsParam = new DateAsParam(testDate);
-            searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
+            searchParameter = new SearchParameterDecorator<DateAsParam>(dateAsParam);
             searchParameter = new LargerThanDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -192,7 +192,7 @@ namespace TestProject
             expected = $"<= '{testDate}'";
 
             DateAsParam dateAsParam = new DateAsParam(testDate);
-            searchParameter = new SearchParameter<DateAsParam>(dateAsParam);
+            searchParameter = new SearchParameterDecorator<DateAsParam>(dateAsParam);
             searchParameter = new SmallerThanDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -207,7 +207,7 @@ namespace TestProject
             DateAsParam low = new DateAsParam(lowDate);
             DateAsParam high = new DateAsParam(highDate);
 
-            searchParameter = new SearchParameter<DateAsParam>(low, high);
+            searchParameter = new SearchParameterDecorator<DateAsParam>(low, high);
             searchParameter = new BetweenDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -235,7 +235,7 @@ namespace TestProject
             expected = $"BETWEEN '{testDate}' AND '{testDate}'";
 
             DateAsParam dateAsParam = new DateAsParam(testDate);
-            searchParameter = new SearchParameter<DateAsParam>(dateAsParam, dateAsParam);
+            searchParameter = new SearchParameterDecorator<DateAsParam>(dateAsParam, dateAsParam);
             searchParameter = new BetweenDecorator(searchParameter);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);

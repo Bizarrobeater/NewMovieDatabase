@@ -10,6 +10,7 @@ namespace NewMovieDatabase.TableClasses
     public class Table //TODO make equatable
     {
         string _tableName;
+        TableType _type;
         TableColumnCollection _columns;
 
         public string TableName { get => _tableName; }
@@ -21,6 +22,7 @@ namespace NewMovieDatabase.TableClasses
         {
             _tableName = tableName;
             _columns = new TableColumnCollection();
+            _type = TableType.Dimension;
         }
 
         public override string ToString()

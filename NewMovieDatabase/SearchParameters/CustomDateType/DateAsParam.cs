@@ -59,5 +59,7 @@ namespace NewMovieDatabase.SQLBuilder
         {
             return Date.CompareTo(other);
         }
+
+        public static implicit operator DateTime(DateAsParam date) => date.Date;
     }
 }

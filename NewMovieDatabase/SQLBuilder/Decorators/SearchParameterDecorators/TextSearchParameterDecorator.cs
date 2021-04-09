@@ -1,11 +1,11 @@
 ﻿namespace NewMovieDatabase.SQLBuilder
 {
     /// <summary>
-    /// Class is a specific version of <see cref="SearchParameter{string}"/> where characters are escaped before returned.
+    /// Class is a specific version of <see cref="SearchParameterDecorator{string}"/> where characters are escaped before returned.
     /// </summary>
-    public class TextSearchParameter : SearchParameter<string>
+    public class TextSearchParameterDecorator : SearchParameterDecorator<string>
     {
-        public TextSearchParameter(string parameter) : base(parameter)
+        public TextSearchParameterDecorator(string parameter) : base(parameter)
         {
             _baseSearchParameter = EscapeTextParameter();
         }

@@ -43,12 +43,15 @@
             if (isPrimaryKey && HasPrimaryKey)
                 throw new PrimaryKeyExistsException(newColumn);
 
-            foreach (Column column in _innerCollection)
-            {
-                // throws an exception if the column name exists
-                if (column.Equals(newColumn.ColumnName))
-                    throw new ColumnAlreadyExistsException(newColumn, column);
-            }
+
+            if (_innerCollection.Contains(newColumn.ColumnName))
+                throw new ColumnAlreadyExistsException(newColumn, table);
+            //foreach (Column column in _innerCollection)
+            //{
+            //    // throws an exception if the column name exists
+            //    if (column.Equals(newColumn.ColumnName))
+            //        throw new ColumnAlreadyExistsException(newColumn, column);
+            //}
             
             // Adds the table to the column (and throws error if the column is already associated with a table)
             newColumn.AddTable(table);

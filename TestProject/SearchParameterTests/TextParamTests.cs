@@ -15,7 +15,7 @@ namespace TestProject
         {
             expected = $"LIKE '{testString}'";
 
-            searchParameter = new TextSearchParameter(testString);
+            searchParameter = new TextSearchParameterDecorator(testString);
             searchParameter = new TextWrapDecorator(searchParameter);
             searchParameter = new LikeDecorator(searchParameter);
 
@@ -28,7 +28,7 @@ namespace TestProject
         {
             expected = $@"LIKE '%{testString}%'";
 
-            searchParameter = new TextSearchParameter(testString);
+            searchParameter = new TextSearchParameterDecorator(testString);
             searchParameter = new WildCardWrapDecorator(searchParameter);
             searchParameter = new TextWrapDecorator(searchParameter);
             searchParameter = new LikeDecorator(searchParameter);
@@ -43,7 +43,7 @@ namespace TestProject
             string escapedString = new string(testString).Replace("'", "''");
             expected = $"{escapedString}";
 
-            searchParameter = new TextSearchParameter(testString);
+            searchParameter = new TextSearchParameterDecorator(testString);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
         }
@@ -55,7 +55,7 @@ namespace TestProject
             string escapedString = new string(testString).Replace("\"", "");
             expected = $"{escapedString}";
 
-            searchParameter = new TextSearchParameter(testString);
+            searchParameter = new TextSearchParameterDecorator(testString);
 
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
@@ -68,7 +68,7 @@ namespace TestProject
             string trimmedString = new string(testString).Trim();
             expected = $"{trimmedString}";
 
-            searchParameter = new TextSearchParameter(testString);
+            searchParameter = new TextSearchParameterDecorator(testString);
 
             Assert.AreEqual(expected, searchParameter.ToSQLString);
         }

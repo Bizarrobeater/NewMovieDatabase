@@ -8,7 +8,8 @@
         public TextWrapDecorator(ISQLCommandBuilder commandBuilder)
         {
             _commandBuilder = commandBuilder;
-            _wrapChar = '\'';
+            _startWrap = "\'";
+            _endWrap = _startWrap;
         }
     }
 }

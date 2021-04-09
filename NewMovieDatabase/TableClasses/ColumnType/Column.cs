@@ -28,7 +28,7 @@ namespace NewMovieDatabase.TableClasses
 
         public Table Table { get => _table; }
         public string ColumnName { get => _columnName; }
-        public  string FullName { get => $"{_table.TableName}-{_columnName}"; }
+        public  string FullName { get => $"{_table.TableName}.{_columnName}"; }
         public ColumnDataType DataType { get => _dataType;}
 
         public void SetDataType(ColumnDataType dataType) => _dataType = dataType;
