@@ -18,16 +18,4 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="SQLBuilder\GenericSearchParameter\Between\GenericParamBetween.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\Between\GenericParamBetweenBase.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\Between\GenericParamNotBetween.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\Equal\GenericParamEqual.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\Equal\GenericParamNotEqual.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\GenericParamAbstract.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\LargerThan\GenericParamLargerThan.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\LargerThan\GenericParamNotLargerThan.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\SmallerThan\GenericParamNotSmallerThan.cs" />
-    <Compile Remove="SQLBuilder\GenericSearchParameter\SmallerThan\GenericParamSmallerThan.cs" />
-  </ItemGroup>
 </Project>
