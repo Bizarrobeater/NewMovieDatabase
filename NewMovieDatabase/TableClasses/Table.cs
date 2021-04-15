@@ -16,30 +16,38 @@ namespace NewMovieDatabase.TableClasses
         public string TableName { get => _tableName; }
 
         public int ColumnCount { get => _columns.Count; }
+
         public bool HasPrimaryKey { get => _columns.HasPrimaryKey; }
 
         public Table(string tableName)
         {
+            _type = TableType.Dimension;
             _tableName = tableName;
             _columns = new TableColumnCollection();
-            _type = TableType.Dimension;
+            CreatePrimaryKeyColumn();
         }
 
-        public override string ToString()
+        public Table(string tableName, TableType tableType)
+            : this(tableName)
         {
-            return _tableName;
+            _type = tableType;
         }
 
-        // Tries to add a new column to the tables collection
-        public string AddColumn(Column newColumn)
+
+        /// <summary>
+        /// Tries to add a column to the table.
+        /// </summary>
+        /// <param name="newColumn">The column to add</param>
+        /// <returns></returns>
+        public bool AddColumn(Column newColumn, out string message)
         {
-            string message;
             string exceptionTopMessage = "Failure to add column - reason:\n\t";
+            message = "";
 
             try
             {
                 _columns.Add(newColumn, this);
-                message = $"{newColumn.ColumnName} was successfully added to {TableName}";
+                return true;
             }
             catch (PrimaryKeyExistsException pkeEx)
             {
@@ -53,7 +61,7 @@ namespace NewMovieDatabase.TableClasses
             {
                 message = $"{ exceptionTopMessage}{catEx.Message}";
             }
-            return message;
+            return false;
         }
 
         public bool RemoveColumn(Column column)
@@ -67,12 +75,37 @@ namespace NewMovieDatabase.TableClasses
         public List<string> AddColumns(IEnumerable<Column> columns)
         {
             List<string> messages = new List<string>();
+            string message;
 
             foreach (Column column in columns)
             {
-                messages.Add(AddColumn(column));
+                if (!AddColumn(column, out message))
+                {
+                    messages.Add(message);
+                }
+                    
             }
             return messages;
         }
+
+        #region STANDARD_OVERRIDES
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return _tableName;
+        }
+
+        #endregion STANDARD_OVERRIDES
+
+        #region INITIALISATION_METHODS
+
+        private void CreatePrimaryKeyColumn()
+        {
+            Column primKey = new Column("Id", ColumnDataType.PrimaryKey);
+            AddColumn(primKey, out _);
+        }
+
+        #endregion INITIALISATION_METHODS
     }
 }

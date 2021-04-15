@@ -62,7 +62,7 @@ namespace NewMovieDatabase.TableClasses
             return rules.VerifyColumnName(columnName, out message);
         }
 
-        public override string ToString() => ColumnName;
+        
 
         /// <summary>
         /// Adds a table to the column
@@ -94,6 +94,8 @@ namespace NewMovieDatabase.TableClasses
             AddTable(table);
         }
 
+        #region EQUATABLE_METHODS
+
         /// <summary>
         /// Compares 2 columns based on name and datatype.
         /// </summary>
@@ -111,7 +113,6 @@ namespace NewMovieDatabase.TableClasses
         /// <returns>
         /// True if the names are the same, false if they are not.
         /// </returns>
-        // Compares a string to full name, cannot take account for datatype
         public bool Equals(string ColumnName) => _columnName == ColumnName;
 
 
@@ -144,5 +145,14 @@ namespace NewMovieDatabase.TableClasses
             else
                 return _table.Equals(other);
         }
+
+        #endregion EQUATABLE_METHODS
+
+        #region STANDARD_OVERRIDES
+
+        /// <inheritdoc/>
+        public override string ToString() => ColumnName;
+
+        #endregion STANDARD_OVERRIDES
     }
 }

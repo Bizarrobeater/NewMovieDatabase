@@ -2,7 +2,7 @@
 {
     public enum TableType
     {
-        Fact,
+        Main,
         Dimension,
         Junction,
     }

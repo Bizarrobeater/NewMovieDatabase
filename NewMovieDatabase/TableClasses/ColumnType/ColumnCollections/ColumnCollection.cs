@@ -70,6 +70,21 @@ namespace NewMovieDatabase.TableClasses
             return false;
         }
 
+        /// <summary>
+        /// Determines if a collection contains a columns with a specific name.
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
+        public bool Contains(string columnName)
+        {
+            foreach (Column column in _innerCollection)
+            {
+                if (column.Equals(columnName))
+                    return true;
+            }
+            return false;
+        }
+
         /// <inheritdoc/>
         void ICollection<Column>.CopyTo(Column[] array, int arrayIndex)
         {

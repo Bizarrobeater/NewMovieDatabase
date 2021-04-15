@@ -1,7 +1,7 @@
 ﻿namespace NewMovieDatabase.TableClasses
 {
     /// <summary>
-    /// Represents a specific type of column colleciton that can only contain 1 primary key and two columns with the same name.
+    /// Represents a specific type of column collection that can only contain 1 primary key and two columns with the same name.
     /// </summary>
     public class TableColumnCollection : ColumnCollection
     {
@@ -43,15 +43,9 @@
             if (isPrimaryKey && HasPrimaryKey)
                 throw new PrimaryKeyExistsException(newColumn);
 
-
-            if (_innerCollection.Contains(newColumn.ColumnName))
+            // Throws exception if the column name already exists.
+            if (Contains(newColumn.ColumnName))
                 throw new ColumnAlreadyExistsException(newColumn, table);
-            //foreach (Column column in _innerCollection)
-            //{
-            //    // throws an exception if the column name exists
-            //    if (column.Equals(newColumn.ColumnName))
-            //        throw new ColumnAlreadyExistsException(newColumn, column);
-            //}
             
             // Adds the table to the column (and throws error if the column is already associated with a table)
             newColumn.AddTable(table);

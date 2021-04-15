@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="ColumnSearch\ColumnSearch.cs" />
     <Compile Include="ColumnSearch\IColumnSearch.cs" />
+    <Compile Include="Database\Database.cs" />
     <Compile Include="Keywords\Exceptions\KeywordAlreadyExistException.cs" />
     <Compile Include="Keywords\Collection\KeywordCollection.cs" />
     <Compile Include="Keywords\Collection\KeywordEnumerator.cs" />
