@@ -1,152 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6A1EC42-6E81-4C8B-96D9-B4A13BD61810}</ProjectGuid>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NewMovieDatabase</RootNamespace>
-    <AssemblyName>NewMovieDatabase</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="ColumnSearch\ColumnSearch.cs" />
-    <Compile Include="ColumnSearch\IColumnSearch.cs" />
-    <Compile Include="Database\Database.cs" />
-    <Compile Include="Keywords\Exceptions\KeywordAlreadyExistException.cs" />
-    <Compile Include="Keywords\Collection\KeywordCollection.cs" />
-    <Compile Include="Keywords\Collection\KeywordEnumerator.cs" />
-    <Compile Include="Keywords\Exceptions\KeywordNameException.cs" />
-    <Compile Include="Keywords\KeywordNameValidation.cs" />
-    <Compile Include="SQLBuilder\Decorators\CommandDecorators\AndDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\CommandDecorators\BaseCommandDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\CommandDecorators\NotDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\CommandDecorators\OrDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\SearchDecorators\BetweenDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\SearchDecorators\EqualDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\SearchDecorators\ExactLikeDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\SearchDecorators\LargerThanDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\SearchDecorators\LikeDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\SQLCommandDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\SearchDecorators\SmallerThanDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\SearchParameterDecorators\TextSearchParameterDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\WrapperDecorators\BaseWrapper.cs" />
-    <Compile Include="SQLBuilder\Decorators\WrapperDecorators\WildCardWrapDecorator.cs" />
-    <Compile Include="SQLBuilder\Decorators\WrapperDecorators\TextWrapDecorator.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnCollections\IColumnCollection.cs" />
-    <Compile Include="TableClasses\TableType.cs" />
-    <Compile Include="VerifyNames\Exceptions\BasicNameConstraintException.cs" />
-    <Compile Include="VerifyNames\Exceptions\KeywordNameException.cs" />
-    <Compile Include="VerifyNames\IDataBaseNameRules.cs" />
-    <Compile Include="Keywords\Keyword.cs" />
-    <Compile Include="SearchParameters\CustomDateType\DateAsParam.cs" />
-    <Compile Include="SQLBuilder\ISQLCommandBuilder.cs" />
-    <Compile Include="Keywords\KeywordSearch.cs" />
-    <Compile Include="Search.cs" />
-    <Compile Include="SQLBuilder\Decorators\SearchParameterDecorators\SearchParameterDecorator.cs" />
-    <Compile Include="SearchParameters\SearchParameterFactory\SearchParameterAbstractFactory.cs" />
-    <Compile Include="SearchParameters\CustomDateType\YearAsParam.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnCollections\ColumnCollection.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnDataType.cs" />
-    <Compile Include="TableClasses\ColumnType\Column.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnCollections\ColumnEnumerator.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnForeignKey.cs" />
-    <Compile Include="TableClasses\ColumnType\ColumnCollections\TableColumnCollection.cs" />
-    <Compile Include="TableClasses\Exceptions\ColumnAlreadyExistsException.cs" />
-    <Compile Include="TableClasses\Exceptions\ColumnAlreadyInTableException.cs" />
-    <Compile Include="TableClasses\Exceptions\PrimaryKeyExistsException.cs" />
-    <Compile Include="TableClasses\Table.cs" />
-    <Compile Include="VerifyNames\SQLite\VerifySQLiteName.cs" />
-    <Compile Include="VerifyNames\VerifySQLLanguageName.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
   <ItemGroup>
     <Resource Include="VerifyNames\ReservedKeywordLists\SQLiteKeywords.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.2.220602">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="SQLBuilder\GenericSearchParameter\Between\GenericParamBetween.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\Between\GenericParamBetweenBase.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\Between\GenericParamNotBetween.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\Equal\GenericParamEqual.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\Equal\GenericParamNotEqual.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\GenericParamAbstract.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\LargerThan\GenericParamLargerThan.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\LargerThan\GenericParamNotLargerThan.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\SmallerThan\GenericParamNotSmallerThan.cs" />
+    <Compile Remove="SQLBuilder\GenericSearchParameter\SmallerThan\GenericParamSmallerThan.cs" />
+  </ItemGroup>
 </Project>
