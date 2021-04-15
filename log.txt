@@ -51,3 +51,77 @@ Microsoft.Windows.Compatibility, Version=5.0.2
 2021-04-15 13:56:46.792 +02:00 [INF] Upgrade step Finalize upgrade applied successfully
 2021-04-15 13:56:48.612 +02:00 [INF] Upgrade has completed. Please review any changes.
 2021-04-15 13:56:48.613 +02:00 [INF] Saving upgrade progress file at C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\NewMovieDatabase\.upgrade-assistant
+2021-04-15 14:11:29.489 +02:00 [INF] MSBuild registered from C:\Program Files\dotnet\sdk\5.0.202\
+2021-04-15 14:11:29.515 +02:00 [INF] Registered 1 extensions:
+	Default extension
+2021-04-15 14:11:31.382 +02:00 [INF] Initializing upgrade step Select an entrypoint
+2021-04-15 14:11:31.386 +02:00 [INF] Setting entrypoint to user selected project: C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\ConsoleForTesting\ConsoleForDebugging.csproj
+2021-04-15 14:11:31.557 +02:00 [INF] Initializing upgrade step Select project to upgrade
+2021-04-15 14:11:31.579 +02:00 [INF] Initializing upgrade step Back up project
+2021-04-15 14:11:35.831 +02:00 [INF] Applying upgrade step Back up project
+2021-04-15 14:11:37.614 +02:00 [INF] Backing up C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\ConsoleForTesting to C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\ConsoleForTesting.backup
+2021-04-15 14:11:37.673 +02:00 [INF] Project backed up to C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\ConsoleForTesting.backup
+2021-04-15 14:11:37.676 +02:00 [INF] Upgrade step Back up project applied successfully
+2021-04-15 14:11:38.578 +02:00 [INF] Initializing upgrade step Convert project file to SDK style
+2021-04-15 14:11:38.580 +02:00 [INF] Initializing upgrade step Clean up NuGet package references
+2021-04-15 14:11:41.089 +02:00 [INF] Reference to .NET Upgrade Assistant analyzer package (Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, version 0.2.220602) needs added
+2021-04-15 14:11:41.094 +02:00 [INF] Packages to be addded:
+Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.2.220602
+2021-04-15 14:11:42.355 +02:00 [INF] Applying upgrade step Clean up NuGet package references
+2021-04-15 14:11:42.361 +02:00 [INF] Adding package reference: Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.2.220602
+2021-04-15 14:11:44.296 +02:00 [INF] Upgrade step Clean up NuGet package references applied successfully
+2021-04-15 14:11:46.767 +02:00 [INF] Initializing upgrade step Update TFM
+2021-04-15 14:11:46.815 +02:00 [INF] TFM needs updated to net5.0-windows
+2021-04-15 14:11:47.927 +02:00 [INF] Applying upgrade step Update TFM
+2021-04-15 14:11:50.057 +02:00 [INF] Updated TFM to net5.0-windows
+2021-04-15 14:11:50.058 +02:00 [INF] Upgrade step Update TFM applied successfully
+2021-04-15 14:11:50.992 +02:00 [INF] Initializing upgrade step Update NuGet Packages
+2021-04-15 14:11:53.079 +02:00 [INF] No package updates needed
+2021-04-15 14:11:53.079 +02:00 [INF] Initializing upgrade step Add template files
+2021-04-15 14:11:53.133 +02:00 [INF] 0 expected template items needed
+2021-04-15 14:11:53.134 +02:00 [INF] Initializing upgrade step Update C# source
+2021-04-15 14:11:54.710 +02:00 [INF] Initializing upgrade step Move to next project
+2021-04-15 14:11:56.859 +02:00 [INF] Applying upgrade step Move to next project
+2021-04-15 14:11:56.860 +02:00 [INF] Upgrade step Move to next project applied successfully
+2021-04-15 14:11:58.495 +02:00 [INF] Initializing upgrade step Finalize upgrade
+2021-04-15 14:12:02.707 +02:00 [INF] Applying upgrade step Finalize upgrade
+2021-04-15 14:12:02.708 +02:00 [INF] Upgrade step Finalize upgrade applied successfully
+2021-04-15 14:12:03.922 +02:00 [INF] Upgrade has completed. Please review any changes.
+2021-04-15 14:12:03.923 +02:00 [INF] Saving upgrade progress file at C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\ConsoleForTesting\.upgrade-assistant
+2021-04-15 14:12:43.859 +02:00 [INF] MSBuild registered from C:\Program Files\dotnet\sdk\5.0.202\
+2021-04-15 14:12:43.883 +02:00 [INF] Registered 1 extensions:
+	Default extension
+2021-04-15 14:12:45.710 +02:00 [INF] Initializing upgrade step Select an entrypoint
+2021-04-15 14:12:45.714 +02:00 [INF] Setting entrypoint to user selected project: C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\TestProject\TestProject.csproj
+2021-04-15 14:12:45.883 +02:00 [INF] Initializing upgrade step Select project to upgrade
+2021-04-15 14:12:45.923 +02:00 [INF] Initializing upgrade step Back up project
+2021-04-15 14:12:47.141 +02:00 [INF] Applying upgrade step Back up project
+2021-04-15 14:12:48.695 +02:00 [INF] Backing up C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\TestProject to C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\TestProject.backup
+2021-04-15 14:12:48.770 +02:00 [INF] Project backed up to C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\TestProject.backup
+2021-04-15 14:12:48.781 +02:00 [INF] Upgrade step Back up project applied successfully
+2021-04-15 14:12:49.767 +02:00 [INF] Initializing upgrade step Convert project file to SDK style
+2021-04-15 14:12:49.769 +02:00 [INF] Initializing upgrade step Clean up NuGet package references
+2021-04-15 14:12:51.906 +02:00 [INF] Reference to .NET Upgrade Assistant analyzer package (Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, version 0.2.220602) needs added
+2021-04-15 14:12:51.914 +02:00 [INF] Packages to be addded:
+Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.2.220602
+2021-04-15 14:12:52.857 +02:00 [INF] Applying upgrade step Clean up NuGet package references
+2021-04-15 14:12:52.864 +02:00 [INF] Adding package reference: Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.2.220602
+2021-04-15 14:12:55.137 +02:00 [INF] Upgrade step Clean up NuGet package references applied successfully
+2021-04-15 14:13:00.219 +02:00 [INF] Initializing upgrade step Update TFM
+2021-04-15 14:13:00.278 +02:00 [INF] TFM needs updated to net5.0-windows
+2021-04-15 14:13:01.124 +02:00 [INF] Applying upgrade step Update TFM
+2021-04-15 14:13:03.416 +02:00 [INF] Updated TFM to net5.0-windows
+2021-04-15 14:13:03.418 +02:00 [INF] Upgrade step Update TFM applied successfully
+2021-04-15 14:13:05.496 +02:00 [INF] Initializing upgrade step Update NuGet Packages
+2021-04-15 14:13:07.067 +02:00 [INF] No package updates needed
+2021-04-15 14:13:07.068 +02:00 [INF] Initializing upgrade step Add template files
+2021-04-15 14:13:07.103 +02:00 [INF] 0 expected template items needed
+2021-04-15 14:13:07.103 +02:00 [INF] Initializing upgrade step Update C# source
+2021-04-15 14:13:08.682 +02:00 [INF] Initializing upgrade step Move to next project
+2021-04-15 14:13:09.688 +02:00 [INF] Applying upgrade step Move to next project
+2021-04-15 14:13:09.689 +02:00 [INF] Upgrade step Move to next project applied successfully
+2021-04-15 14:13:11.278 +02:00 [INF] Initializing upgrade step Finalize upgrade
+2021-04-15 14:13:13.659 +02:00 [INF] Applying upgrade step Finalize upgrade
+2021-04-15 14:13:13.660 +02:00 [INF] Upgrade step Finalize upgrade applied successfully
+2021-04-15 14:13:14.502 +02:00 [INF] Upgrade has completed. Please review any changes.
+2021-04-15 14:13:14.504 +02:00 [INF] Saving upgrade progress file at C:\Users\Christopher\source\repos\Bizarrobeater\NewMovieDatabase\TestProject\.upgrade-assistant
